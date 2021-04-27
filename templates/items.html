@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restruction</title>
+</head>
+<body>
+    {% for item in items %}
+        {{ item.item_name }}<br>
+        {{ item.item_description }}<br>
+        {{ item.quantity }}<br>
+        {{ item.measurement_unit }} <br>
+        {{ item.estimated_mass }}<br>
+        {{ item.condition }}<br>
+        {{ item.contact_details }}<br>
+        {{ item.date_of_destruction }}<br>
+    {% endfor %}
+</body>
+</html>
