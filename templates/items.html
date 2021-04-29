@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restruction</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
+
+<h2>I'm extending the base template</h2>
+
     {% for item in items %}
         {{ item.item_name }}<br>
         {{ item.item_description }}<br>
@@ -16,5 +13,4 @@
         {{ item.contact_details }}<br>
         {{ item.date_of_destruction }}<br>
     {% endfor %}
-</body>
-</html>
+{% endblock %}
