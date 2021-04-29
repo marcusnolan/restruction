@@ -29,6 +29,30 @@ def get_items():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    if request.method == "POST":
+        # checking previous usernames
+        existing_user = mongo.db.users.find(
+            {"username": request.form.get("username").lower()},
+            {"email": request.form.get("email").lower()}
+            )
+
+        if existing_user:
+            flash("Username or email already in use")
+            return redirect(url_for("register"))
+
+        register = {
+            "first_name": request.form.get("first_name").lower(),
+            "last_name": request.form.get("last_name").lower(),
+            "username": request.form.get("username").lower(),
+            "password": generate_password_hash(request.form.get("password")),
+            "email": request.form.get("email").lower(),
+        }
+        mongo.db.users.insert_one(register)
+
+        # put the newuser into session cookie
+        session["user"] = request.form.get("username").lower()
+        flash("Registration Successfull! Welcome to Restruction")
+
     return render_template("register.html")
 
 
