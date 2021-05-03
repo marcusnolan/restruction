@@ -1,6 +1,6 @@
 import os
 from flask import (
-    Flask, flash, render_template, 
+    Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -30,11 +30,10 @@ def get_items():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
-        # checking previous usernames
-        existing_user = mongo.db.users.find(
-            {"username": request.form.get("username").lower()},
-            {"email": request.form.get("email").lower()})
-
+        # checking previous usernames and emails
+        existing_user = mongo.db.users.find_one(
+            {'$or': [{"username": request.form.get("username").lower()},
+                     {"email": request.form.get("email").lower()}]})
 
         if existing_user:
             flash("Username or email already in use")
@@ -54,6 +53,29 @@ def register():
         flash("Registration Successfull! Welcome to Restruction")
 
     return render_template("register.html")
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        existing_user = mongo.db.users.find_one(
+            {"username": request.form.get("username").lower()})
+
+        if existing_user:
+            if check_password_hash(
+                    existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
+
+            else:
+                flash("Incorrect Username and/or Password")
+                return redirect(url_for("login"))
+
+        else:
+            flash("Incorrect Username and/or Password")
+            return redirect(url_for("login"))
+
+    return render_template("login.html")
 
 
 if __name__ == "__main__":
