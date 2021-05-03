@@ -33,8 +33,8 @@ def register():
         # checking previous usernames
         existing_user = mongo.db.users.find(
             {"username": request.form.get("username").lower()},
-            {"email": request.form.get("email").lower()}
-            )
+            {"email": request.form.get("email").lower()})
+
 
         if existing_user:
             flash("Username or email already in use")
