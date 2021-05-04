@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <h1 class="home-header">Welcome to Restruction!</h1>
+    <p>Our aim is to reduce the vast carbon footprint produced by the construction industry by saving one salvagable
+        item at a time from going to waste. Register via the button at the top right and join the movement if you work
+        within the construction industry and have items to post or are in the search for salvageable items. 
+    </p>
+
+</div>
+
+
+
+{% for item in items %}
+{{ item.item_name }}<br>
+{{ item.item_description }}<br>
+{{ item.quantity }}<br>
+{{ item.measurement_unit }} <br>
+{{ item.estimated_mass }}<br>
+{{ item.condition }}<br>
+{{ item.contact_details }}<br>
+{{ item.date_of_destruction }}<br>
+{% endfor %}
+
+<ul class="collapsible">
+    <li>
+        <div class="collapsible-header"><i class="fas fa-caret-down"></i>First</div>
+        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+        <div class="collapsible-header"><i class="fas fa-caret-down"></i>First</div>
+        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+    <li>
+        <div class="collapsible-header"><i class="fas fa-caret-down"></i>First</div>
+        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+</ul>
+
+{% endblock %}

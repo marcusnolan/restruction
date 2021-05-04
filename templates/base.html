@@ -19,24 +19,19 @@
 <body>
 
     <header>
-        <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#!">Profile</a></li>
-            <li><a href="#!">Posts</a></li>
-            <li><a href="#!">Log Out</a></li>
-        </ul>
         <nav class="nav-extended green lighten-2">
             <div class="nav-wrapper">
-                <a href="{{ url_for('get_items') }}" class="brand-logo"><i class="fas fa-recycle"></i>Restruction</a>
+                <a href="{{ url_for('home') }}" class="brand-logo"><i class="fas fa-recycle"></i>Restruction</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('get_items') }}">Home</a></li>
+                    <li><a href="{{ url_for('home') }}">Home</a></li>
                     {% if session.user %}
                     <ul id="my-account-dropdown" class="dropdown-content">
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="#!">Posts</a></li>
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     </ul>
-                    <li><a href="#">Items</a></li>
+                    <li><a href="{{ url_for('get_items') }}">Items</a></li>
                     <li><a class="dropdown-trigger" href="{{ url_for('profile', username=session['user']) }}"
                             data-target="my-account-dropdown">My Account <i class="fas fa-sort-down"></i></a></li>
                     {% else %}
@@ -49,14 +44,14 @@
 
         <ul class="sidenav" id="mobile-demo">
             <h4 class="center-align green-text text-lighten-2"><i class="fas fa-recycle"></i>Restruction</h4>
-            <li><a href="#">Home</a></li>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
             {% if session.user %}
             <ul id="my-account-dropdown2" class="dropdown-content">
                 <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                 <li><a href="#!">Posts</a></li>
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             </ul>
-            <li><a href="#">Items</a></li>
+            <li><a href="{{ url_for('get_items') }}">Items</a></li>
             <li><a class="dropdown-trigger" href="{{ url_for('profile', username=session['user']) }}"
                     data-target="my-account-dropdown2">My Account <i class="fas fa-sort-down"></i></a></li>
             {% else %}
