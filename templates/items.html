@@ -3,6 +3,8 @@
     {% for item in items %}
         {{ item.item_name }}<br>
         {{ item.item_description }}<br>
+        {{ item.type }}<br>
+        {{ item.object_name}}<br>
         {{ item.quantity }}<br>
         {{ item.measurement_unit }} <br>
         {{ item.estimated_mass }}<br>
@@ -12,18 +14,27 @@
     {% endfor %}
 
     <ul class="collapsible">
+        {% for item in items %}
         <li>
-            <div class="collapsible-header"><i class="fas fa-caret-down"></i>First</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            <div class="collapsible-header">
+                <i class="fas fa-caret-down"></i>
+                <span><strong>{{ item.item_name }}</strong><br>
+                {{ item.type }}, {{ item.object_name}}
+                </span>
+            </div>
+            <div class="collapsible-body">
+                <span>
+                    <strong>Description:</strong> {{ item.item_description }}<br>
+                    <strong>Quantity:</strong> {{ item.quantity }}<br>
+                    <strong>Measurement Unit:</strong> {{ item.measurement_unit }} <br>
+                    <strong>Estimated Mass:</strong> {{ item.estimated_mass }}<br>
+                    <strong>Condition:</strong> {{ item.condition }}<br>
+                    <strong>Contact:</strong> {{ item.contact_name }}, {{ item.contact_email }}, {{ item.contact_phone }}<br>
+                    <strong>Date of Destruction:</strong> {{ item.date_of_destruction }}<br>
+                </span>
+            </div>
         </li>
-        <li>
-            <div class="collapsible-header"><i class="fas fa-caret-down"></i>First</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
-        <li>
-            <div class="collapsible-header"><i class="fas fa-caret-down"></i>First</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-        </li>
+        {% endfor %}
     </ul>
 
 {% endblock %}

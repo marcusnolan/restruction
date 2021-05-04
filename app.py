@@ -29,7 +29,7 @@ def home():
 
 @app.route("/get_items")
 def get_items():
-    items = mongo.db.items.find()
+    items = list(mongo.db.items.find())
     return render_template("items.html", items=items)
 
 
