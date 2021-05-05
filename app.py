@@ -33,6 +33,13 @@ def get_items():
     return render_template("items.html", items=items)
 
 
+@app.route("/user_items")
+def user_items():
+    items = list(mongo.db.items.find(
+        {"created_by": session["user"]}))
+    return render_template("user_items.html", items=items)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
