@@ -3,36 +3,37 @@
 
 <h3 class="center-align page-header">Your Posted Items</h3>
 {% if session.user %}
-    <ul class="collapsible">
-        {% for item in items %}
-        <li>
-            <div class="collapsible-header">
-                <div class="col s3 vertical-align-center">
-                    <i class="fas fa-caret-down"></i>
-                    <a class="waves-effect waves-light btn-small">Done</a>
-                    <a href="{{ url_for('edit_item', item_id=item._id) }}" class="waves-effect waves-light btn-small">Edit</a>
-                </div>
-                <div class="col s9 vertical-align-center">
+<ul class="collapsible">
+    {% for item in items %}
+    <li>
+        <div class="collapsible-header">
+            <div class="col s3 vertical-align-center">
+                <i class="fas fa-caret-down"></i>
+                <a href="{{ url_for('edit_item', item_id=item._id) }}"
+                    class="waves-effect waves-light btn-small">Edit</a>
+            </div>
+            <div class="col s9 vertical-align-center">
                 <span><strong>{{ item.item_name }}</strong><br>
-                {{ item.item_type }}
-                </span>
-                </div>
-            </div>
-            <div class="collapsible-body">
-                <span>
-                    <strong>Description:</strong> {{ item.item_description }}<br>
-                    <strong>Quantity:</strong> {{ item.quantity }}<br>
-                    <strong>Measurement Unit:</strong> {{ item.measurement_unit }} <br>
-                    <strong>Estimated Mass:</strong> {{ item.estimated_mass }}<br>
-                    <strong>Condition:</strong> {{ item.condition }}<br>
-                    <strong>Contact:</strong> {{ item.contact_name }}, {{ item.contact_email }}, {{ item.contact_phone }}<br>
-                    <strong>Date of Destruction:</strong> {{ item.date_of_destruction }}<br>
-                    <em>Uploaded By: {{ item.created_by }}</em>
+                    {{ item.item_type }}
                 </span>
             </div>
-        </li>
-        {% endfor %}
-    </ul>
+        </div>
+        <div class="collapsible-body">
+            <span>
+                <strong>Description:</strong> {{ item.item_description }}<br>
+                <strong>Quantity:</strong> {{ item.quantity }}<br>
+                <strong>Measurement Unit:</strong> {{ item.measurement_unit }} <br>
+                <strong>Estimated Mass:</strong> {{ item.estimated_mass }}<br>
+                <strong>Condition:</strong> {{ item.condition }}<br>
+                <strong>Contact:</strong> {{ item.contact_name }}, {{ item.contact_email }},
+                {{ item.contact_phone }}<br>
+                <strong>Date of Destruction:</strong> {{ item.date_of_destruction }}<br>
+                <em>Uploaded By: {{ item.created_by }}</em>
+            </span>
+        </div>
+    </li>
+    {% endfor %}
+</ul>
 {% endif %}
 
 {% endblock %}
