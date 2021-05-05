@@ -7,10 +7,16 @@
         {% for item in items %}
         <li>
             <div class="collapsible-header">
-                <i class="fas fa-caret-down"></i>
+                <div class="col s3 vertical-align-center">
+                    <i class="fas fa-caret-down"></i>
+                    <a class="waves-effect waves-light btn-small">Done</a>
+                    <a href="{{ url_for('edit_item', item_id=item._id) }}" class="waves-effect waves-light btn-small">Edit</a>
+                </div>
+                <div class="col s9 vertical-align-center">
                 <span><strong>{{ item.item_name }}</strong><br>
                 {{ item.item_type }}
                 </span>
+                </div>
             </div>
             <div class="collapsible-body">
                 <span>

@@ -136,6 +136,14 @@ def add_item():
     return render_template("add_items.html", item_type=item_type)
 
 
+@app.route("/edit_item/<item_id>", methods=["GET", "POST"])
+def edit_item(item_id):
+    item = mongo.db.items.find_one({"_id": ObjectId(item_id)})
+
+    item_type = mongo.db.item_type.find().sort("item_type", 1)
+    return render_template("edit_item.html", item=item, item_type=item_type)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

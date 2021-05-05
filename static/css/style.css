@@ -5,3 +5,13 @@
 .home-header {
     text-align: center;
 }
+
+.btn-small {
+    margin-right: 15px ;
+}
+
+.vertical-align-center {
+    align-items: center;
+    vertical-align: middle;
+    align-content: center;
+}
