@@ -1,17 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-    {% for item in items %}
-        {{ item.item_name }}<br>
-        {{ item.item_description }}<br>
-        {{ item.type }}<br>
-        {{ item.object_name}}<br>
-        {{ item.quantity }}<br>
-        {{ item.measurement_unit }} <br>
-        {{ item.estimated_mass }}<br>
-        {{ item.condition }}<br>
-        {{ item.contact_details }}<br>
-        {{ item.date_of_destruction }}<br>
-    {% endfor %}
+
+<h3 class="center-align page-header">All Items</h3>
 
     <ul class="collapsible">
         {% for item in items %}
@@ -19,7 +9,7 @@
             <div class="collapsible-header">
                 <i class="fas fa-caret-down"></i>
                 <span><strong>{{ item.item_name }}</strong><br>
-                {{ item.type }}, {{ item.object_name}}
+                {{ item.item_type }}
                 </span>
             </div>
             <div class="collapsible-body">
@@ -31,6 +21,7 @@
                     <strong>Condition:</strong> {{ item.condition }}<br>
                     <strong>Contact:</strong> {{ item.contact_name }}, {{ item.contact_email }}, {{ item.contact_phone }}<br>
                     <strong>Date of Destruction:</strong> {{ item.date_of_destruction }}<br>
+                    <em>Uploaded By: {{ item.created_by }}</em>
                 </span>
             </div>
         </li>

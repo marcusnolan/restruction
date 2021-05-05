@@ -104,9 +104,29 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_item")
+@app.route("/add_item", methods=["GET", "POST"])
 def add_item():
-    return render_template("add_items.html")
+    if request.method == "POST":
+        item = {
+            "item_name": request.form.get("item_name"),
+            "item_type": request.form.get("item_type"),
+            "item_description": request.form.get("item_description"),
+            "quantity": request.form.get("quantity"),
+            "measurement_unit": request.form.get("measurement_unit"),
+            "estimated_mass": request.form.get("estimated_mass"),
+            "condition": request.form.get("condition"),
+            "contact_name": request.form.get("contact_name"),
+            "contact_email": request.form.get("contact_email"),
+            "contact_phone": request.form.get("contact_phone"),
+            "date_of_destruction": request.form.get("date_of_destruction"),
+            "created_by": session["user"]
+        }
+        mongo.db.items.insert_one(item)
+        flash("Task Successfully Added")
+        return redirect(url_for("get_items"))
+
+    item_type = mongo.db.item_type.find().sort("item_type", 1)
+    return render_template("add_items.html", item_type=item_type)
 
 
 if __name__ == "__main__":
