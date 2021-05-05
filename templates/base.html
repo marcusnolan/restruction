@@ -32,6 +32,7 @@
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     </ul>
                     <li><a href="{{ url_for('get_items') }}">Items</a></li>
+                    <li><a href="{{ url_for('add_item') }}">Add Item</a></li>
                     <li><a class="dropdown-trigger" href="{{ url_for('profile', username=session['user']) }}"
                             data-target="my-account-dropdown">My Account <i class="fas fa-sort-down"></i></a></li>
                     {% else %}
@@ -52,6 +53,7 @@
                 <li><a href="{{ url_for('logout') }}">Log Out</a></li>
             </ul>
             <li><a href="{{ url_for('get_items') }}">Items</a></li>
+            <li><a href="{{ url_for('add_item') }}">Add Item</a></li>
             <li><a class="dropdown-trigger" href="{{ url_for('profile', username=session['user']) }}"
                     data-target="my-account-dropdown2">My Account <i class="fas fa-sort-down"></i></a></li>
             {% else %}

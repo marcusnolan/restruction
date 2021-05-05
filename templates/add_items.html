@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="center-align">Add Task</h3>
+
+
+
+<div class="row">
+    <div class="input-field col s12">
+        <form class="col s12" method="POST" action="" id="add_task_form">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="item_name" name="item_name" type="text" class="validate" minlength="5" maxlength="50" required>
+                    <label for="item_name">Item Name</label>
+                </div>
+                <div class="input-field col s6">
+            <select name="item_type" id="item_type" form="add_task_form" required>
+                <optgroup label="Object">
+                    <option value="object_furniture">Furniture</option>
+                    <option value="object_motorised_electrical">Motorised / Electrical</option>
+                    <option value="object_decorative">Decorative</option>
+                    <option value="object_Door">Door</option>
+                    <option value="object_fixture">Fixture</option>
+                    <option value="object_miscellaneous">Miscellaneous</option>
+                </optgroup>
+                <optgroup label="Materials">
+                    <option value="material_plastic">Plastic</option>
+                    <option value="material_steel">Steel</option>
+                    <option value="material_wood">Wood</option>
+                    <option value="material_glass">Glass</option>
+                    <option value="material_textiles">Textiles</option>
+                    <option value="material_ceramics">Ceramics</option>
+                    <option value="material_concrete">Concrete</option>
+                    <option value="material_packaging">Packaging</option>
+                </optgroup>
+            </select>
+            <label for="item_type">Item Type</label>
+        </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <textarea id="item_description" name="item_description" type="text" class="materialize-textarea validate" minlength="5" maxlength="150" required></textarea>
+                    <label for="item_description">Item Description</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input id="quantity" name="quantity" type="text" class="validate" minlength="1">
+                    <label for="quantity">Quantity</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="e.g m^3 for metres cubed" id="measurement_unit" name="measurement_unit" type="text" class="validate" minlength="1" maxlength="50">
+                    <label for="measurement_unit">Measurement Unit</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="e.g 2 Tonnes" id="estimated_mass" name="estimated_mass" type="text" class="validate" minlength="1" maxlength="50">
+                    <label for="estimated_mass">Estimated Mass</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="e.g Very Good" id="condition" name="condition" type="text" class="validate"  minlength="2" maxlength="50" required>
+                    <label for="condition">Condition</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s4">
+                    <input id="contact_name" name="contact_name" type="text" class="validate" minlength="5" maxlength="50" required>
+                    <label for="contact_name">Contact Name</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="contact_email" name="contact_email" type="email" class="validate" minlength="5" maxlength="50" required>
+                    <label for="contact_email">Contact Email</label>
+                </div>
+                <div class="input-field col s4">
+                    <input id="contact_phone" name="contact_phone" type="tel" class="validate">
+                    <label for="contact_phone">Contact Phone</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" class="datepicker validate" name="date_of_destruction" id="date_of_destruction" required>
+                    <label for="date_of_destruction">Date Of Destruction</label>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    {% endblock %}
