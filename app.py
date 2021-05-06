@@ -168,6 +168,11 @@ def delete_item(item_id):
     flash("Item Successfully Deleted")
     return redirect(url_for("user_items"))
 
+@app.route("/get_item_type")
+def get_item_type():
+    item_type = list(mongo.db.item_type.find().sort("item_type", 1))
+    return render_template("item_type.html", item_type=item_type)
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

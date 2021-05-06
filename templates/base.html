@@ -29,6 +29,9 @@
                     <ul id="my-account-dropdown" class="dropdown-content">
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('user_items') }}">Posts</a></li>
+                        {% if session.user|lower == "admin"|lower %}
+                    <li><a href="{{ url_for('get_item_type') }}">Manage Item Types</a></li>
+                    {% endif %}
                         <li><a href="{{ url_for('logout') }}">Log Out</a></li>
                     </ul>
                     <li><a href="{{ url_for('get_items') }}">Items</a></li>

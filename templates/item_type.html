@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3 class="center-align page-header">Manage Item Types</h3>
+<div class="row">
+    {% for item_type in item_type %}
+    <div class="col s12 m6">
+                <div class="card green lighten-2 center-align">
+                    <div class="card-content white-text">
+                        <span class="card-title">{{ item_type.item_type }}</span>
+                    </div>
+                    <div class="card-action">
+                        <a href="#" class="btn light-blue accent-4">Edit</a>
+                        <a href="#" class="btn red lighten-1">Delete</a>
+                    </div>
+                </div>
+            </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
