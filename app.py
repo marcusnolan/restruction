@@ -174,6 +174,19 @@ def get_item_type():
     return render_template("item_type.html", item_type=item_type)
 
 
+@app.route("/add_item_type", methods=["GET", "POST"])
+def add_item_type():
+    if request.method == "POST":
+        item_type = {
+            "item_type": request.form.get("item_type")
+        }
+        mongo.db.item_type.insert_one(item_type)
+        flash("New Item Type Added")
+        return redirect(url_for("get_item_type"))
+
+    return render_template("add_item_type.html")
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

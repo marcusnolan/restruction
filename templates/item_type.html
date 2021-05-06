@@ -2,6 +2,15 @@
 {% block content %}
 
 <h3 class="center-align page-header">Manage Item Types</h3>
+
+<div class="row">
+    <div class="col s12 center-align">
+        <a href="{{ url_for('add_item_type') }}" class="btn-large light-blue">
+            Add Item Type <i class="fas fa-plus-square right"></i>
+        </a>
+    </div>
+</div>
+
 <div class="row">
     {% for item_type in item_type %}
     <div class="col s12 m6">
