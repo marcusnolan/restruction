@@ -21,6 +21,19 @@
                     <button type="submit" class="btn-large light-green">Edit Item Type
                         <i class="fas fa-edit right"></i>
                     </button>
+                    <a class="waves-effect waves-light btn-large red modal-trigger" href="#modal2">Delete Item Type</a>
+                </div>
+
+                <!-- Modal Structure -->
+                <div id="modal2" class="modal">
+                    <div class="modal-content">
+                        <h4>Are you sure?</h4>
+                        <p>Once the item type is deleted, you can not recover it!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ url_for('delete_item_type', item_type_id=item_type._id) }}"
+                            class="modal-close waves-effect waves-green btn-flat">Permanently Delete</a>
+                    </div>
                 </div>
             </div>
         </form>

@@ -201,6 +201,13 @@ def edit_item_type(item_type_id):
     return render_template("edit_item_type.html", item_type=item_type)
 
 
+@app.route("/delete_item_type/<item_type_id>")
+def delete_item_type(item_type_id):
+    mongo.db.item_type.remove({"_id": ObjectId(item_type_id)})
+    flash("Item Type successfully deleted")
+    return redirect(url_for("get_item_type"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
