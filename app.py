@@ -187,6 +187,20 @@ def add_item_type():
     return render_template("add_item_type.html")
 
 
+@app.route("/edit_item_type/<item_type_id>", methods=["GET", "POST"])
+def edit_item_type(item_type_id):
+    if request.method == "POST":
+        submit = {
+            "item_type": request.form.get("item_type")
+        }
+        mongo.db.item_type.update({"_id": ObjectId(item_type_id)}, submit)
+        flash("Item Type successfully updated")
+        return redirect(url_for("get_item_type"))
+
+    item_type = mongo.db.item_type.find_one({"_id": ObjectId(item_type_id)})
+    return render_template("edit_item_type.html", item_type=item_type)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
