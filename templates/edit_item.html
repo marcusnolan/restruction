@@ -15,11 +15,11 @@
                 <div class="input-field col s6">
                     <select name="item_type" id="item_type" form="add_task_form" required>
                         {% for item_type in item_type %}
-                            {% if item_type.item_type == item.item_type %}
-                            <option value="{{ item_type.item_type }}" selected>{{ item_type.item_type }}</option>
-                            {% else %}
-                            <option value="{{ item_type.item_type }}">{{ item_type.item_type }}</option>
-                            {% endif %}
+                        {% if item_type.item_type == item.item_type %}
+                        <option value="{{ item_type.item_type }}" selected>{{ item_type.item_type }}</option>
+                        {% else %}
+                        <option value="{{ item_type.item_type }}">{{ item_type.item_type }}</option>
+                        {% endif %}
                         {% endfor %}
                     </select>
                     <label for="item_type">Item Type</label>
@@ -36,7 +36,8 @@
             </div>
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="quantity" value="{{ item.quantity }}" name="quantity" type="text" class="validate" minlength="1">
+                    <input id="quantity" value="{{ item.quantity }}" name="quantity" type="text" class="validate"
+                        minlength="1">
                     <label for="quantity">Quantity</label>
                 </div>
                 <div class="input-field col s6">
@@ -69,7 +70,8 @@
                     <label for="contact_email">Contact Email</label>
                 </div>
                 <div class="input-field col s4">
-                    <input id="contact_phone" value="{{ item.contact_phone }}" name="contact_phone" type="tel" class="validate">
+                    <input id="contact_phone" value="{{ item.contact_phone }}" name="contact_phone" type="tel"
+                        class="validate">
                     <label for="contact_phone">Contact Phone</label>
                 </div>
             </div>
@@ -84,25 +86,26 @@
                 <div class="col s12 center-align">
                     <a href="{{ url_for('user_items') }}" class="btn large red">Cancel
                         <i class="fas fa-times-circle right"></i>
-                    </a>                
+                    </a>
                     <button type="submit" class="btn large light-green">Edit Item
                         <i class="fas fa-edit right"></i>
                     </button>
                     <a class="waves-effect waves-light btn large red modal-trigger" href="#modal1">Delete Item</a>
 
-                <!-- Modal Structure -->
-                <div id="modal1" class="modal">
-                    <div class="modal-content">
-                        <h4>Are you sure?</h4>
-                        <p>Once the item is deleted, you can not recover it!</p>
+                    <!-- Modal Structure -->
+                    <div id="modal1" class="modal">
+                        <div class="modal-content">
+                            <h4>Are you sure?</h4>
+                            <p>Once the item is deleted, you can not recover it!</p>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{{ url_for('delete_item', item_id=item._id) }}"
+                                class="modal-close waves-effect waves-green btn-flat">Permanently Delete</a>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <a href="{{ url_for('delete_item', item_id=item._id) }}" class="modal-close waves-effect waves-green btn-flat">Permanently Delete</a>
-                    </div>
-                </div>
                 </div>
             </div>
         </form>
     </div>
-
+</div>
     {% endblock %}

@@ -95,11 +95,11 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", user=user)
 
     return redirect(url_for("login"))
 
@@ -168,6 +168,7 @@ def delete_item(item_id):
     flash("Item Successfully Deleted")
     return redirect(url_for("user_items"))
 
+
 @app.route("/get_item_type")
 def get_item_type():
     item_type = list(mongo.db.item_type.find().sort("item_type", 1))
@@ -206,6 +207,21 @@ def delete_item_type(item_type_id):
     mongo.db.item_type.remove({"_id": ObjectId(item_type_id)})
     flash("Item Type successfully deleted")
     return redirect(url_for("get_item_type"))
+
+
+@app.route("/edit_users/<users_id>", methods=["GET", "POST"])
+def edit_users(users_id):
+    if request.method == "POST":
+        submit = {
+            "first_name": request.form.get("first_name"),
+            "last_name": request.form.get("last_name"),
+            "email": request.form.get("email")
+        }
+        mongo.db.users.update({"_id": ObjectId(users_id)}, submit)
+        flash("User Successfully Updated")
+
+    users = mongo.db.users.find_one({"_id": ObjectId(users_id)})
+    return render_template("profile.html", users=users)
 
 
 if __name__ == "__main__":
