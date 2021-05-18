@@ -34,3 +34,15 @@ h1, h2, h3, h4, h5, h6 {
 .nav-wrapper {
     margin: 0px 20px 0px 20px;
 }
+
+.alternate-row-a {
+    background-color: #e8f5e9;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #4fc3f7;
+}
+
+.alternate-row-b {
+    background-color: #e1f5fe;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #81c784;
+}
