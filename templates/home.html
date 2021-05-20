@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
+
+<img src="../static/images/restruction-banner.jpg" alt="Restruction Banner" class="banner-image">
 <div class="container">
-    <h1 class="home-header">Welcome to Restruction!</h1>
     <p>Our aim is to reduce the vast carbon footprint produced by the construction industry by saving one salvagable
         item at a time from going to waste. Register via the button at the top right and join the movement if you work
         within the construction industry and have items to post or are in the search for salvageable items.
     </p>
-
+    <h4 class="center-align">Most Recent Posts</h4>
     <ul class="collapsible">
         {% for item in items %}
         <li>

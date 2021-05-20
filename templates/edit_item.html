@@ -1,111 +1,114 @@
 {% extends "base.html" %}
 {% block content %}
+<div class="container">
+    <h3 class="center-align page-header">Edit Item</h3>
 
-<h3 class="center-align page-header">Edit Item</h3>
-
-<div class="row">
-    <div class="input-field col s12">
-        <form class="col s12" method="POST" action="{{ url_for('edit_item', item_id=item._id) }}" id="add_task_form">
-            <div class="row">
-                <div class="input-field col s6">
-                    <input id="item_name" name="item_name" type="text" class="validate" minlength="5" maxlength="50"
-                        value="{{ item.item_name }}" required>
-                    <label for="item_name">Item Name</label>
+    <div class="row">
+        <div class="input-field col s12">
+            <form class="col s12" method="POST" action="{{ url_for('edit_item', item_id=item._id) }}"
+                id="add_task_form">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="item_name" name="item_name" type="text" class="validate" minlength="5" maxlength="50"
+                            value="{{ item.item_name }}" required>
+                        <label for="item_name">Item Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <select name="item_type" id="item_type" form="add_task_form" required>
+                            {% for item_type in item_type %}
+                            {% if item_type.item_type == item.item_type %}
+                            <option value="{{ item_type.item_type }}" selected>{{ item_type.item_type }}</option>
+                            {% else %}
+                            <option value="{{ item_type.item_type }}">{{ item_type.item_type }}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                        <label for="item_type">Item Type</label>
+                    </div>
                 </div>
-                <div class="input-field col s6">
-                    <select name="item_type" id="item_type" form="add_task_form" required>
-                        {% for item_type in item_type %}
-                        {% if item_type.item_type == item.item_type %}
-                        <option value="{{ item_type.item_type }}" selected>{{ item_type.item_type }}</option>
-                        {% else %}
-                        <option value="{{ item_type.item_type }}">{{ item_type.item_type }}</option>
-                        {% endif %}
-                        {% endfor %}
-                    </select>
-                    <label for="item_type">Item Type</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <textarea id="item_description" name="item_description" type="text"
-                        class="materialize-textarea validate" minlength="5" maxlength="150" required>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <textarea id="item_description" name="item_description" type="text"
+                            class="materialize-textarea validate" minlength="5" maxlength="150" required>
                         {{- item.item_description -}}
                     </textarea>
-                    <label for="item_description">Item Description</label>
+                        <label for="item_description">Item Description</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input id="quantity" value="{{ item.quantity }}" name="quantity" type="text" class="validate"
-                        minlength="1">
-                    <label for="quantity">Quantity</label>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input id="quantity" value="{{ item.quantity }}" name="quantity" type="text" class="validate"
+                            minlength="1">
+                        <label for="quantity">Quantity</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="e.g m^3 for metres cubed" id="measurement_unit" name="measurement_unit"
+                            value="{{ item.measurement_unit }}" type="text" class="validate" minlength="1"
+                            maxlength="50">
+                        <label for="measurement_unit">Measurement Unit</label>
+                    </div>
                 </div>
-                <div class="input-field col s6">
-                    <input placeholder="e.g m^3 for metres cubed" id="measurement_unit" name="measurement_unit"
-                        value="{{ item.measurement_unit }}" type="text" class="validate" minlength="1" maxlength="50">
-                    <label for="measurement_unit">Measurement Unit</label>
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="e.g 2 Tonnes" id="estimated_mass" name="estimated_mass" type="text"
+                            value="{{ item.estimated_mass }}" class="validate" minlength="1" maxlength="50">
+                        <label for="estimated_mass">Estimated Mass</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="e.g Very Good" id="condition" name="condition" type="text" class="validate"
+                            value="{{ item.condition }}" minlength="2" maxlength="50" required>
+                        <label for="condition">Condition</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input placeholder="e.g 2 Tonnes" id="estimated_mass" name="estimated_mass" type="text"
-                        value="{{ item.estimated_mass }}" class="validate" minlength="1" maxlength="50">
-                    <label for="estimated_mass">Estimated Mass</label>
+                <div class="row">
+                    <div class="input-field col s4">
+                        <input id="contact_name" name="contact_name" type="text" class="validate" minlength="5"
+                            value="{{ item.contact_name }}" maxlength="50" required>
+                        <label for="contact_name">Contact Name</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="contact_email" name="contact_email" type="email" class="validate" minlength="5"
+                            value="{{ item.contact_email }}" maxlength="50" required>
+                        <label for="contact_email">Contact Email</label>
+                    </div>
+                    <div class="input-field col s4">
+                        <input id="contact_phone" value="{{ item.contact_phone }}" name="contact_phone" type="tel"
+                            class="validate">
+                        <label for="contact_phone">Contact Phone</label>
+                    </div>
                 </div>
-                <div class="input-field col s6">
-                    <input placeholder="e.g Very Good" id="condition" name="condition" type="text" class="validate"
-                        value="{{ item.condition }}" minlength="2" maxlength="50" required>
-                    <label for="condition">Condition</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" class="datepicker validate" name="date_of_destruction"
+                            id="date_of_destruction" value="{{ item.date_of_destruction }}" required>
+                        <label for="date_of_destruction">Date Of Destruction</label>
+                    </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s4">
-                    <input id="contact_name" name="contact_name" type="text" class="validate" minlength="5"
-                        value="{{ item.contact_name }}" maxlength="50" required>
-                    <label for="contact_name">Contact Name</label>
-                </div>
-                <div class="input-field col s4">
-                    <input id="contact_email" name="contact_email" type="email" class="validate" minlength="5"
-                        value="{{ item.contact_email }}" maxlength="50" required>
-                    <label for="contact_email">Contact Email</label>
-                </div>
-                <div class="input-field col s4">
-                    <input id="contact_phone" value="{{ item.contact_phone }}" name="contact_phone" type="tel"
-                        class="validate">
-                    <label for="contact_phone">Contact Phone</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <input type="text" class="datepicker validate" name="date_of_destruction" id="date_of_destruction"
-                        value="{{ item.date_of_destruction }}" required>
-                    <label for="date_of_destruction">Date Of Destruction</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s12 center-align">
-                    <a href="{{ url_for('user_items') }}" class="btn large red">Cancel
-                        <i class="fas fa-times-circle right"></i>
-                    </a>
-                    <button type="submit" class="btn large light-green">Edit Item
-                        <i class="fas fa-edit right"></i>
-                    </button>
-                    <a class="waves-effect waves-light btn large red modal-trigger" href="#modal1">Delete Item</a>
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <a href="{{ url_for('user_items') }}" class="btn large red">Cancel
+                            <i class="fas fa-times-circle right"></i>
+                        </a>
+                        <button type="submit" class="btn large light-green">Edit Item
+                            <i class="fas fa-edit right"></i>
+                        </button>
+                        <a class="waves-effect waves-light btn large red modal-trigger" href="#modal1">Delete Item</a>
 
-                    <!-- Modal Structure -->
-                    <div id="modal1" class="modal">
-                        <div class="modal-content">
-                            <h4>Are you sure?</h4>
-                            <p>Once the item is deleted, you can not recover it!</p>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="{{ url_for('delete_item', item_id=item._id) }}"
-                                class="modal-close waves-effect waves-green btn-flat">Permanently Delete</a>
+                        <!-- Modal Structure -->
+                        <div id="modal1" class="modal">
+                            <div class="modal-content">
+                                <h4>Are you sure?</h4>
+                                <p>Once the item is deleted, you can not recover it!</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="{{ url_for('delete_item', item_id=item._id) }}"
+                                    class="modal-close waves-effect waves-green btn-flat">Permanently Delete</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </div>
-    {% endblock %}
+{% endblock %}
