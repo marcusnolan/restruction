@@ -32,11 +32,13 @@ def get_items():
     items = list(mongo.db.items.find())
     return render_template("items.html", items=items)
 
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     query = request.form.get("query")
     items = list(mongo.db.items.find({"$text": {"$search": query}}))
     return render_template("items.html", items=items)
+
 
 @app.route("/user_items")
 def user_items():
@@ -131,6 +133,7 @@ def add_item():
             "contact_email": request.form.get("contact_email"),
             "contact_phone": request.form.get("contact_phone"),
             "date_of_destruction": request.form.get("date_of_destruction"),
+            "img": request.form.get("img"),
             "created_by": session["user"]
         }
         mongo.db.items.insert_one(item)
