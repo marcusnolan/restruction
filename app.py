@@ -23,7 +23,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    items = mongo.db.items.find()
+    items = mongo.db.items.find().sort("_id", -1).limit(10)
     return render_template("home.html", items=items)
 
 
@@ -32,6 +32,11 @@ def get_items():
     items = list(mongo.db.items.find())
     return render_template("items.html", items=items)
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    items = list(mongo.db.items.find({"$text": {"$search": query}}))
+    return render_template("items.html", items=items)
 
 @app.route("/user_items")
 def user_items():
