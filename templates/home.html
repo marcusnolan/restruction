@@ -43,6 +43,9 @@
                 <a href="tel:{{ item.contact_phone }}"><i class="fas fa-phone"> </i> {{ item.contact_phone }}</a></p></div>
                 <div class="row alternate-row-a center-align">
                 <strong>Date of Destruction:</strong> <p>{{ item.date_of_destruction }}</p></div>
+                <div class="col s12 alternate-row-b center-align">
+                <strong>Image:</strong><br> <img src="{{ item.img }}" alt="{{ item.item_name }} image" style="height: auto; width: 70%;" > 
+                </div>
                 <em>Uploaded By: {{ item.created_by }}</em>
             </div>
         </li>

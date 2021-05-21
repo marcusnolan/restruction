@@ -12,24 +12,40 @@
                     <a href="{{ url_for('edit_item', item_id=item._id) }}"
                         class="waves-effect waves-light btn-small">Edit</a>
                 </div>
-                <div class="col s9 vertical-align-center">
-                    <span><strong>{{ item.item_name }}</strong><br>
-                        {{ item.item_type }}
-                    </span>
-                </div>
+                <span><strong>{{ item.item_name }}</strong><br>
+                    {{ item.item_type }}
+                </span>
             </div>
             <div class="collapsible-body">
-                <span>
-                    <strong>Description:</strong> {{ item.item_description }}<br>
-                    <strong>Quantity:</strong> {{ item.quantity }}<br>
-                    <strong>Measurement Unit:</strong> {{ item.measurement_unit }} <br>
-                    <strong>Estimated Mass:</strong> {{ item.estimated_mass }}<br>
-                    <strong>Condition:</strong> {{ item.condition }}<br>
-                    <strong>Contact:</strong> {{ item.contact_name }}, {{ item.contact_email }},
-                    {{ item.contact_phone }}<br>
-                    <strong>Date of Destruction:</strong> {{ item.date_of_destruction }}<br>
-                    <em>Uploaded By: {{ item.created_by }}</em>
-                </span>
+                <div class="row alternate-row-a center-align">
+                <strong>Description:</strong> 
+                <p>{{ item.item_description }}</p>
+                </div>
+                <div class="row">
+                    <div class="col s6 alternate-row-b center-align">
+                        <strong>Quantity:</strong> <p>{{ item.quantity }}</p>
+                    </div>
+                    <div class="col s6 alternate-row-b center-align">
+                        <strong>Measurement Unit:</strong> <p>{{ item.measurement_unit }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                <div class="col s6 alternate-row-a center-align">
+                    <strong>Estimated Mass:</strong> <p>{{ item.estimated_mass }}</p>
+                </div>
+                <div class="col s6 alternate-row-a center-align">
+                <strong>Condition:</strong> <p>{{ item.condition }}</p>
+                </div>
+                </div>
+                <div class="row alternate-row-b center-align">
+                <strong>Contact:</strong> <p>{{ item.contact_name }}, <a href="mailto:{{ item.contact_email }}"><i class="fas fa-envelope-square"> </i> {{ item.contact_email }}</a>,
+                <a href="tel:{{ item.contact_phone }}"><i class="fas fa-phone"> </i> {{ item.contact_phone }}</a></p></div>
+                <div class="row alternate-row-a center-align">
+                <strong>Date of Destruction:</strong> <p>{{ item.date_of_destruction }}</p></div>
+                <div class="col s12 alternate-row-b center-align">
+                <strong>Image:</strong><br> <img src="{{ item.img }}" alt="{{ item.item_name }} image" style="height: auto; width: 70%;" > 
+                </div>
+                <em>Uploaded By: {{ item.created_by }}</em>
             </div>
         </li>
         {% endfor %}
