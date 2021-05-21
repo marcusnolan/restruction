@@ -70,7 +70,7 @@ def register():
 
         # put the newuser into session cookie
         session["user"] = request.form.get("username").lower()
-        flash("Registration Successfull! Welcome to Restruction")
+        flash("Registration Successful! Welcome to Restruction")
         return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
@@ -137,7 +137,7 @@ def add_item():
             "created_by": session["user"]
         }
         mongo.db.items.insert_one(item)
-        flash("Task Successfully Added")
+        flash("Item Successfully Added")
         return redirect(url_for("get_items"))
 
     item_type = mongo.db.item_type.find().sort("item_type", 1)
@@ -163,7 +163,7 @@ def edit_item(item_id):
             "created_by": session["user"]
         }
         mongo.db.items.update({"_id": ObjectId(item_id)}, submit)
-        flash("Task Successfully Updated")
+        flash("Item Successfully Updated")
 
     item = mongo.db.items.find_one({"_id": ObjectId(item_id)})
     item_type = mongo.db.item_type.find().sort("item_type", 1)
@@ -225,7 +225,8 @@ def edit_users(users_id):
             "last_name": request.form.get("last_name"),
             "email": request.form.get("email")
         }
-        mongo.db.users.update({"_id": ObjectId(users_id)}, submit)
+        mongo.db.users.update(
+            {"_id": ObjectId(users_id)}, submit)
         flash("User Successfully Updated")
 
     users = mongo.db.users.find_one({"_id": ObjectId(users_id)})
