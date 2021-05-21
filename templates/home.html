@@ -3,10 +3,16 @@
 
 <img src="../static/images/restruction-banner.jpg" alt="Restruction Banner" class="banner-image">
 <div class="container">
-    <p>Our aim is to reduce the vast carbon footprint produced by the construction industry by saving one salvagable
+    <h4 class="center-align">What is Restruction?</h4>
+    <p>Restruction is an app developed for the construction industry to post and find items or materials that are
+        perfectly good to be reused but have no home to go to. Rather than let these items go to waste, we aim on
+        finding a new home for them through our app. </p>
+        <img class="responsive-img" src="../static/images/restruction1.jpg" alt="Restruction Home Page Image">
+    <p>Our aim is to reduce the vast carbon footprint produced by the construction industry (40% of the entire worlds carbon) by saving one salvagable
         item at a time from going to waste. Register via the button at the top right and join the movement if you work
         within the construction industry and have items to post or are in the search for salvageable items.
     </p>
+    <p>Have a browse around our site and if you are in the construction industry, register and have a browse of all items! below you will find the 10 most recent posts so you can get an understanding of what restruction offers.</p>
     <h4 class="center-align">Most Recent Posts</h4>
     <ul class="collapsible">
         {% for item in items %}
@@ -19,32 +25,43 @@
             </div>
             <div class="collapsible-body">
                 <div class="row alternate-row-a center-align">
-                <strong>Description:</strong> 
-                <p>{{ item.item_description }}</p>
+                    <strong>Description:</strong>
+                    <p>{{ item.item_description }}</p>
                 </div>
                 <div class="row">
                     <div class="col s6 alternate-row-b center-align">
-                        <strong>Quantity:</strong> <p>{{ item.quantity }}</p>
+                        <strong>Quantity:</strong>
+                        <p>{{ item.quantity }}</p>
                     </div>
                     <div class="col s6 alternate-row-b center-align">
-                        <strong>Measurement Unit:</strong> <p>{{ item.measurement_unit }}</p>
+                        <strong>Measurement Unit:</strong>
+                        <p>{{ item.measurement_unit }}</p>
                     </div>
                 </div>
                 <div class="row">
-                <div class="col s6 alternate-row-a center-align">
-                    <strong>Estimated Mass:</strong> <p>{{ item.estimated_mass }}</p>
-                </div>
-                <div class="col s6 alternate-row-a center-align">
-                <strong>Condition:</strong> <p>{{ item.condition }}</p>
-                </div>
+                    <div class="col s6 alternate-row-a center-align">
+                        <strong>Estimated Mass:</strong>
+                        <p>{{ item.estimated_mass }}</p>
+                    </div>
+                    <div class="col s6 alternate-row-a center-align">
+                        <strong>Condition:</strong>
+                        <p>{{ item.condition }}</p>
+                    </div>
                 </div>
                 <div class="row alternate-row-b center-align">
-                <strong>Contact:</strong> <p>{{ item.contact_name }}, <a href="mailto:{{ item.contact_email }}"><i class="fas fa-envelope-square"> </i> {{ item.contact_email }}</a>,
-                <a href="tel:{{ item.contact_phone }}"><i class="fas fa-phone"> </i> {{ item.contact_phone }}</a></p></div>
+                    <strong>Contact:</strong>
+                    <p>{{ item.contact_name }}, <a href="mailto:{{ item.contact_email }}"><i
+                                class="fas fa-envelope-square"> </i> {{ item.contact_email }}</a>,
+                        <a href="tel:{{ item.contact_phone }}"><i class="fas fa-phone"> </i>
+                            {{ item.contact_phone }}</a></p>
+                </div>
                 <div class="row alternate-row-a center-align">
-                <strong>Date of Destruction:</strong> <p>{{ item.date_of_destruction }}</p></div>
+                    <strong>Date of Destruction:</strong>
+                    <p>{{ item.date_of_destruction }}</p>
+                </div>
                 <div class="col s12 alternate-row-b center-align">
-                <strong>Image:</strong><br> <img src="{{ item.img }}" alt="{{ item.item_name }} image" style="height: auto; width: 70%;" > 
+                    <strong>Image:</strong><br> <img src="{{ item.img }}" alt="{{ item.item_name }} image"
+                        style="height: auto; width: 70%;">
                 </div>
                 <em>Uploaded By: {{ item.created_by }}</em>
             </div>
