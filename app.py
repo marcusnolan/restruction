@@ -220,17 +220,19 @@ def delete_item_type(item_type_id):
 @app.route("/edit_users/<users_id>", methods=["GET", "POST"])
 def edit_users(users_id):
     if request.method == "POST":
-        submit = {
-            "first_name": request.form.get("first_name"),
-            "last_name": request.form.get("last_name"),
-            "email": request.form.get("email")
-        }
-        mongo.db.users.update(
-            {"_id": ObjectId(users_id)}, submit)
+        mongo.db.users.update_one(
+            {"_id": ObjectId(users_id)},
+            {"$set":
+                {
+                        "first_name": request.form.get("first_name"),
+                        "last_name": request.form.get("last_name"),
+                        "email": request.form.get("email")
+                }
+             })
         flash("User Successfully Updated")
 
-    users = mongo.db.users.find_one({"_id": ObjectId(users_id)})
-    return render_template("profile.html", users=users)
+    user = mongo.db.users.find_one({"_id": ObjectId(users_id)})
+    return render_template("profile.html", user=user)
 
 
 if __name__ == "__main__":
