@@ -41,8 +41,8 @@
                         <p>{{ item.quantity }}</p>
                     </div>
                     <div class="col s6 alternate-row-b center-align">
-                        <strong>Measurement Unit:</strong>
-                        <p>{{ item.measurement_unit }}</p>
+                        <strong>Dimensions:</strong>
+                        <p>{{ item.dimensions }}</p>
                     </div>
                 </div>
                 <div class="row">
@@ -63,10 +63,14 @@
                             {{ item.contact_phone }}</a></p>
                 </div>
                 <div class="row alternate-row-a center-align">
-                    <strong>Date of Removal:</strong>
+                    <strong>Date of Removal (yyyy/mm/dd):</strong>
                     <p>{{ item.date_of_destruction }}</p>
                 </div>
-                <div class="col s12 alternate-row-b center-align">
+                <div class="row alternate-row-b center-align">
+                    <strong>Item Location:</strong>
+                    <p>{{ item.item_location }}</p>
+                </div>
+                <div class="col s12 alternate-row-a center-align">
                     <strong>Image:</strong><br> <img src="{{ item.photo_url }}" alt="{{ item.item_name }} image"
                         style="height: auto; width: 50%;">
                 </div>

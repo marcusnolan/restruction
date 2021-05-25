@@ -131,13 +131,14 @@ def add_item():
             "item_type": request.form.get("item_type"),
             "item_description": request.form.get("item_description"),
             "quantity": request.form.get("quantity"),
-            "measurement_unit": request.form.get("measurement_unit"),
+            "dimensions": request.form.get("dimensions"),
             "estimated_mass": request.form.get("estimated_mass"),
             "condition": request.form.get("condition"),
             "contact_name": request.form.get("contact_name"),
             "contact_email": request.form.get("contact_email"),
             "contact_phone": request.form.get("contact_phone"),
             "date_of_destruction": request.form.get("date_of_destruction"),
+            "item_location": request.form.get("item_location"),
             "photo_url": photo_upload["secure_url"],
             "created_by": session["user"]
         }
@@ -168,13 +169,14 @@ def edit_item(item_id):
                     "item_type": request.form.get("item_type"),
                     "item_description": request.form.get("item_description"),
                     "quantity": request.form.get("quantity"),
-                    "measurement_unit": request.form.get("measurement_unit"),
+                    "dimensions": request.form.get("dimensions"),
                     "estimated_mass": request.form.get("estimated_mass"),
                     "condition": request.form.get("condition"),
                     "contact_name": request.form.get("contact_name"),
                     "contact_email": request.form.get("contact_email"),
                     "contact_phone": request.form.get("contact_phone"),
                     "date_of_destruction": request.form.get("date_of_destruction"),
+                    "item_location": request.form.get("item_location"),
                     "created_by": session["user"]
                 }
              })
