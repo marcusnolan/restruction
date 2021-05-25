@@ -1,4 +1,7 @@
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -121,6 +124,8 @@ def logout():
 @app.route("/add_item", methods=["GET", "POST"])
 def add_item():
     if request.method == "POST":
+        photo = request.files['photo_url']
+        photo_upload = cloudinary.uploader.upload(photo)
         item = {
             "item_name": request.form.get("item_name"),
             "item_type": request.form.get("item_type"),
@@ -133,7 +138,7 @@ def add_item():
             "contact_email": request.form.get("contact_email"),
             "contact_phone": request.form.get("contact_phone"),
             "date_of_destruction": request.form.get("date_of_destruction"),
-            "img": request.form.get("img"),
+            "photo_url": photo_upload["secure_url"],
             "created_by": session["user"]
         }
         mongo.db.items.insert_one(item)
@@ -142,6 +147,13 @@ def add_item():
 
     item_type = mongo.db.item_type.find().sort("item_type", 1)
     return render_template("add_items.html", item_type=item_type)
+
+
+cloudinary.config(
+    cloud_name=os.environ.get("CLOUD_NAME"),
+    api_key=os.environ.get("API_KEY"),
+    api_secret=os.environ.get("API_SECRET")
+)
 
 
 @app.route("/edit_item/<item_id>", methods=["GET", "POST"])
@@ -224,9 +236,9 @@ def edit_users(users_id):
             {"_id": ObjectId(users_id)},
             {"$set":
                 {
-                        "first_name": request.form.get("first_name"),
-                        "last_name": request.form.get("last_name"),
-                        "email": request.form.get("email")
+                    "first_name": request.form.get("first_name"),
+                    "last_name": request.form.get("last_name"),
+                    "email": request.form.get("email")
                 }
              })
         flash("User Successfully Updated")

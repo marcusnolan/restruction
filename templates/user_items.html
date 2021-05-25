@@ -18,32 +18,43 @@
             </div>
             <div class="collapsible-body">
                 <div class="row alternate-row-a center-align">
-                <strong>Description:</strong> 
-                <p>{{ item.item_description }}</p>
+                    <strong>Description:</strong>
+                    <p>{{ item.item_description }}</p>
                 </div>
                 <div class="row">
                     <div class="col s6 alternate-row-b center-align">
-                        <strong>Quantity:</strong> <p>{{ item.quantity }}</p>
+                        <strong>Quantity:</strong>
+                        <p>{{ item.quantity }}</p>
                     </div>
                     <div class="col s6 alternate-row-b center-align">
-                        <strong>Measurement Unit:</strong> <p>{{ item.measurement_unit }}</p>
+                        <strong>Measurement Unit:</strong>
+                        <p>{{ item.measurement_unit }}</p>
                     </div>
                 </div>
                 <div class="row">
-                <div class="col s6 alternate-row-a center-align">
-                    <strong>Estimated Mass:</strong> <p>{{ item.estimated_mass }}</p>
-                </div>
-                <div class="col s6 alternate-row-a center-align">
-                <strong>Condition:</strong> <p>{{ item.condition }}</p>
-                </div>
+                    <div class="col s6 alternate-row-a center-align">
+                        <strong>Estimated Mass:</strong>
+                        <p>{{ item.estimated_mass }}</p>
+                    </div>
+                    <div class="col s6 alternate-row-a center-align">
+                        <strong>Condition:</strong>
+                        <p>{{ item.condition }}</p>
+                    </div>
                 </div>
                 <div class="row alternate-row-b center-align">
-                <strong>Contact:</strong> <p>{{ item.contact_name }}, <a href="mailto:{{ item.contact_email }}"><i class="fas fa-envelope-square"> </i> {{ item.contact_email }}</a>,
-                <a href="tel:{{ item.contact_phone }}"><i class="fas fa-phone"> </i> {{ item.contact_phone }}</a></p></div>
+                    <strong>Contact:</strong>
+                    <p>{{ item.contact_name }}, <a href="mailto:{{ item.contact_email }}"><i
+                                class="fas fa-envelope-square"> </i> {{ item.contact_email }}</a>,
+                        <a href="tel:{{ item.contact_phone }}"><i class="fas fa-phone"> </i>
+                            {{ item.contact_phone }}</a></p>
+                </div>
                 <div class="row alternate-row-a center-align">
-                <strong>Date of Removal:</strong> <p>{{ item.date_of_destruction }}</p></div>
+                    <strong>Date of Removal:</strong>
+                    <p>{{ item.date_of_destruction }}</p>
+                </div>
                 <div class="col s12 alternate-row-b center-align">
-                <strong>Image:</strong><br> <img src="{{ item.img }}" alt="{{ item.item_name }} image" style="height: auto; width: 70%;" > 
+                    <strong>Image:</strong><br> <img src="{{ item.photo_url }}" alt="{{ item.item_name }} image"
+                        style="height: auto; width: 50%;">
                 </div>
                 <em>Uploaded By: {{ item.created_by }}</em>
             </div>
