@@ -160,21 +160,24 @@ cloudinary.config(
 def edit_item(item_id):
 
     if request.method == "POST":
-        submit = {
-            "item_name": request.form.get("item_name"),
-            "item_type": request.form.get("item_type"),
-            "item_description": request.form.get("item_description"),
-            "quantity": request.form.get("quantity"),
-            "measurement_unit": request.form.get("measurement_unit"),
-            "estimated_mass": request.form.get("estimated_mass"),
-            "condition": request.form.get("condition"),
-            "contact_name": request.form.get("contact_name"),
-            "contact_email": request.form.get("contact_email"),
-            "contact_phone": request.form.get("contact_phone"),
-            "date_of_destruction": request.form.get("date_of_destruction"),
-            "created_by": session["user"]
-        }
-        mongo.db.items.update({"_id": ObjectId(item_id)}, submit)
+        mongo.db.items.update_one(
+            {"_id": ObjectId(item_id)},
+            {"$set":
+                {
+                    "item_name": request.form.get("item_name"),
+                    "item_type": request.form.get("item_type"),
+                    "item_description": request.form.get("item_description"),
+                    "quantity": request.form.get("quantity"),
+                    "measurement_unit": request.form.get("measurement_unit"),
+                    "estimated_mass": request.form.get("estimated_mass"),
+                    "condition": request.form.get("condition"),
+                    "contact_name": request.form.get("contact_name"),
+                    "contact_email": request.form.get("contact_email"),
+                    "contact_phone": request.form.get("contact_phone"),
+                    "date_of_destruction": request.form.get("date_of_destruction"),
+                    "created_by": session["user"]
+                }
+             })
         flash("Item Successfully Updated")
 
     item = mongo.db.items.find_one({"_id": ObjectId(item_id)})
