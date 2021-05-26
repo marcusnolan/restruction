@@ -1,12 +1,18 @@
 <h1 align="center">Restruction</h1>
-<h1 align="center"><img src="multi screen view"/></h1>
+<h1 align="center"><img src="./static/images/readme/restruction_preview.png"/></h1>
 
 <a href="https://restruction.herokuapp.com/"><img src="./static/images/readme/heroku_logo.png" width="25px"/> : Restruction Deployed on Heroku</a>
 
-<a href="https://github.com/marcusnolan/Milestone-2-Go-Phish"><img src="./static/images/readme/github-logo.png" width="25px"/> : Restruction Github Repository</a>
+<a href="https://github.com/marcusnolan/restruction"><img src="./static/images/readme/github-logo.png" width="25px"/> : Restruction Github Repository</a>
 
 ## About
-Restruction 
+The Restuction app was developed to try and create a database where professionals from the construction industry can either advertise or find items 
+(materials or objects), that are still very usable but are going to be destroyed or removed form a building due to refurbishment or demolition. This effort 
+is to try and combat the 40% that the construction industry claims of the worlds total carbon production every year. <br>
+<br>
+A lot of this carbon produced is from materials and objects that are being produced for new buildings even though there are perfectly got alternatives available. 
+anot only does the production of these items produce carbon but the packaging and shipping can often produce even more carbon than the product itself. If Restruction
+can help just one item from unnecessarily being destroyed, it is a victory!
 
 ## Table of Contents
 **[User Experience](#user-experience)** 
@@ -29,9 +35,21 @@ Restruction
 
 ### User Stories
 - #### As a general user;
-    1. xx
+    1. I want to be informed about Restruction's concept.
+    2. I want to be able to navigate the website easily. 
+    3. I want to see some sample items without having to register or login. 
+    4. I want to easily find the register page and login page. 
 - #### As a construction industry professional;
-    1. xx 
+    1. I want to understand the format and types of items being displayed without having to register or login. 
+    2. I want to be prompted to register as a user. 
+    3. I want to easily find the register and login page's. 
+    4. I want to be able to post item's myself easily. 
+    5. I want to be able to view items and search for items by their name. 
+    6. I want to be able to view iamges of items and upload my own images of items I have posted. 
+    7. I want to be able to edit and delete items I have posted. 
+    8. I want to be able to edit my account. 
+    9. I want to be able to set specific contact details for the items I post. 
+    10. I want to set a date for which the item will be removed. 
 
 
 ### Design
