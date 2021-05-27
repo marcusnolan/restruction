@@ -112,6 +112,13 @@ footer {
     color: black;
 }
 
+#error-title{
+    font-size: 5em !important;
+
+}
+
+
+
 @media screen and (min-width: 1px) and (max-width: 600px) {
     #restruction-logo {
         display: none;
