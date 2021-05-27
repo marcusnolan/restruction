@@ -26,6 +26,9 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
+    """
+    This is the home route.
+    """
     items = mongo.db.items.find().sort("_id", -1).limit(10)
     return render_template("home.html", items=items)
 
@@ -52,12 +55,13 @@ def user_items():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    """
     if request.method == "POST":
         # checking previous usernames and emails
         existing_user = mongo.db.users.find_one(
             {'$or': [{"username": request.form.get("username").lower()},
                      {"email": request.form.get("email").lower()}]})
-
         if existing_user:
             flash("Username or email already in use")
             return redirect(url_for("register"))
@@ -170,12 +174,14 @@ def edit_item(item_id):
                     "item_description": request.form.get("item_description"),
                     "quantity": request.form.get("quantity"),
                     "dimensions": request.form.get("dimensions"),
-                    "estimated_mass": request.form.get("estimated_mass"),
+                    "estimated_mass":
+                        request.form.get("estimated_mass"),
                     "condition": request.form.get("condition"),
                     "contact_name": request.form.get("contact_name"),
                     "contact_email": request.form.get("contact_email"),
                     "contact_phone": request.form.get("contact_phone"),
-                    "date_of_destruction": request.form.get("date_of_destruction"),
+                    "date_of_destruction":
+                        request.form.get("date_of_destruction"),
                     "item_location": request.form.get("item_location"),
                     "created_by": session["user"]
                 }
