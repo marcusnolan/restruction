@@ -112,9 +112,19 @@ footer {
     color: black;
 }
 
-#error-title{
-    font-size: 5em !important;
+.error-title{
+    font-size: 150px !important;
+    margin: 50px 0 50px 0;
+}
 
+.error-heading{
+    font-size: 80px !important;
+    margin: 20px 0 20px 0;
+}
+
+.error-paragraph{
+    font-size: 20px !important;
+    margin: 10px 0 10px 0;
 }
 
 
