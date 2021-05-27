@@ -71,17 +71,17 @@ can help just one item from unnecessarily being destroyed, it is a victory!
 - #### Imagery
     - x 
 - #### Wireframes/Mockups
-    - The mockup images seen above and below were created using <a href="http://ami.responsivedesign.is/">Am I Responsive</a> and <a href="https://magicmockups.com/">Magic Mockups</a>. Wireframes were created using Adobe XD. Both mobile and desktop versions are linked below;
+    - The mockup images seen above and below were created using <a href="http://ami.responsivedesign.is/">Am I Responsive</a> and <a href="https://magicmockups.com/">
+    Magic Mockups</a>. Wireframes were created using Adobe XD. Both mobile and desktop versions are linked below;
         
-        - <a href=""> Home</a>
-        - <a href=""> Register</a>
-        - <a href=""> Login</a>
-        - <a href=""> Items</a>
-        - <a href=""> Add Item</a>
-        - <a href=""> Profile</a>
-        - <a href=""> My Items</a>
-        - <a href=""> Manage Item Types</a>
-        - <a href=""> Logout</a>
+        - <a href="./static/images/readme/mockups/home_web.png"> Home - Web</a>
+        - <a href="./static/images/readme/mockups/home_mobile.png"> Home - Mobile</a>
+        - <a href="./static/images/readme/mockups/items_web.png"> Items - Web</a>
+        - <a href="./static/images/readme/mockups/items_mobile.png"> Items - Mobile</a>
+        - <a href="./static/images/readme/mockups/login_web.png"> Login/Logout - Web</a>
+        - <a href="./static/images/readme/mockups/login_mobile.png"> Login/Logout - Mobile</a>
+        - <a href="./static/images/readme/mockups/register_web.png"> Register - Web</a>
+        - <a href="./static/images/readme/mockups/register_mobile.png"> Register - Mobile</a>
 
 
 
