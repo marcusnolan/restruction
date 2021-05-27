@@ -73,6 +73,7 @@ can help just one item from unnecessarily being destroyed, it is a victory!
     it is universal and one of the most recognizable icons in the world. I used Font Awesome (fa-recycle) and Raleway font saying "Restruction" to create the logo. 
     It is very simple and clean and because it does not feature an image, it is always brilliant quality no matter what screen resolution. <br>
     <img src="./static/images/readme/restruction_logo.png" height="50px"/>
+    <br>
     - The images on the home page are royalty free images I downloaded from both <a href="https://pixabay.com/">Pixabay</a> and <a href="https://unsplash.com/">Unsplash</a>. 
 - #### Wireframes/Mockups
     - The mockup images seen above and below were created using <a href="http://ami.responsivedesign.is/">Am I Responsive</a> and <a href="https://magicmockups.com/">
@@ -95,13 +96,38 @@ can help just one item from unnecessarily being destroyed, it is a victory!
 
 #### Common Features Across All Pages
 - **Header** - allows user to easily navigate across all pages
-    - x
+    - Navigation is included in the header to allow easy and quick access. 
+    - Python determines if the user is logged in or not by checking if 'user' in session and passes this data to Jinja to display the correct navbar 
+    for the user. 
+    - When a user is not logged in they will only be shown:
+        - Home
+        - Login
+        - Register
+    - Once logged in, the navbar will show the options:
+        - Home
+        - Items
+        - Add Item
+        - And a dropdown named "My Account" showing:
+            - Profile
+            - My Items
+            - Log Out
+        - If you are logged in as the admin, "Manage Item Types" will also be displayed. 
+    - When hovering over items in the navbar, the background of the div they are in gets a slight grey filter to let them know it is clickable and where they are. 
+    - On any screen size less than 992px, The navigation items will be hidden and instead a burger menu icon will appear. 
+    - upon clicking the burger menu icon, all of the normal options (depending on whether you are logged in or not) will appear in a menu from the right. 
 - **Accessibility**
-    - x
-- **Buttons**
-    - x
+    - All images on the website have got alt tags including uploaded item images which have been given an automated alt tag of "{{ item.item_name }} image" to 
+    display without needing the user uploading the item to fill anything out. 
+- **Footer**
+    - At the bottom of each page there is a footer with the same background colour as the header. 
+    - in the left column of the footer is a message requesting people to make contact if they have any issues or suggestions. Below this is an email button
+    linked to my email address. 
+    - In the right column there is the same navigation menu as seen in the header just to increase the ease of navigating the site. 
 - **Responsiveness**
-    - x
+    - Using Materialize Css, all text and items on the site are kept in a container which is set to 70% of the screen width on screens 992px and up. 
+    Any screen from 992px to 600px, the container is set to 85% width and anything below 600px is 90%. 
+    - As well as this, using the grip option of Materialize, anything that has 2 different elemnts on the same row (such as the quantity and dimensions of each item), 
+    will stack on top of each other on devices less than 600px wide as I set them to s12 (small devices 12 columns) but m6 (medium devices 6 columns). Each row is 12 columns in it's entirety. 
 
 
 ### Specific to Pages
