@@ -55,21 +55,25 @@ can help just one item from unnecessarily being destroyed, it is a victory!
 ### Design
 
 - #### Colour Scheme
-    - x
-    <img src="" height="100px"/>
+    - The Universal colour for recycling is green. It has always been recognised as that so naturally, I felt Restruction should have green as the main colour. 
+    I also wanted it to be light and welcoming to give a positive vibe and emotion as the aim and ethos of Restruction is that of positivity and optimism.
+    - The main colour is De York (essentially a Light Green). The Secondary colour is white. The 2 remaining colours in the pallet below are the alternating 
+    background colours for the items dropdowns and are Aqua Spring and Alice Blue. <br>
+    <br>
+    <img src="./static/images/readme/restruction_colours.png" height="150px"/>
 
 - #### Typography
-    - x
-
-        <img src="" height="30px" />
-
-    - x 
-
-        <img src="" height="30px" />
-
+    - The Font used throughout the entire website is Raleway. It is a very clean font which I wanted as in general, I want the website to be clean to give the 
+    feeling that it and the items posted on it are prestine. 
+    <br>
+    <img src="./static/images/readme/restruction_font1.png" height="50px"/><img src="./static/images/readme/restruction_font2.png" height="50px"/>
 
 - #### Imagery
-    - x 
+    - For the Restruction logo, I have used the Universal Recycling Symbol that was originaly designed by a college student back in 1970. As is described in its name, 
+    it is universal and one of the most recognizable icons in the world. I used Font Awesome (fa-recycle) and Raleway font saying "Restruction" to create the logo. 
+    It is very simple and clean and because it does not feature an image, it is always brilliant quality no matter what screen resolution. <br>
+    <img src="./static/images/readme/restruction_logo.png" height="50px"/>
+    - The images on the home page are royalty free images I downloaded from both <a href="https://pixabay.com/">Pixabay</a> and <a href="https://unsplash.com/">Unsplash</a>. 
 - #### Wireframes/Mockups
     - The mockup images seen above and below were created using <a href="http://ami.responsivedesign.is/">Am I Responsive</a> and <a href="https://magicmockups.com/">
     Magic Mockups</a>. Wireframes were created using Adobe XD. Both mobile and desktop versions are linked below;
