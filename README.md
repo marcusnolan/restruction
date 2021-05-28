@@ -29,7 +29,7 @@ can help just one item from unnecessarily being destroyed, it is a victory!
 
 **[Credits](#credits)**
 
-<img src=""/>
+<img src="./static/images/readme/restruction_preview2.jpeg"/>
 
 ## User Experience
 
@@ -132,29 +132,77 @@ can help just one item from unnecessarily being destroyed, it is a victory!
 
 ### Specific to Pages
 - **Home**
-    - x
+    - Home page features a small bit of text outlining the idea of Restruction and it's aim. 
+    - Towards the bottom there is a list that shows the 10 most recently posted items from top to bottom, newest to oldest. 
 - **Register**
-    - x 
+    - Register has got a 5 input form to register to the database. 
+    - The form checks both username and email to see if there is existing ones on the database. 
+    - A Flash message appears if there is an existing Email or Username.  
 - **Login**
-    - x 
+    - Login features a login form accepting username and password. 
+    - There is also a button below the form in case a user has not yet registered. Thsi helps the user experience as if you 
+    get lost and do not yet have an account, it is very easy to see where to go. 
 - **Items**
-    - x 
+    - The Items page is the main browsing page for Restruction. 
+    - It features every single posted item. 
+        - This is in a collapsible dropdown list. 
+        - Each dropdown has all of the specifics of the item, an image and even what user posted it. 
+    - It also features a search function that will not only search existing item names, but also item descriptions and return all matching items. 
 - **Add Item**
-    - x 
+    - The add item page consists of a 13 input form; 
+        - Item Name
+        - Item Type (dropdown)
+        - Item Description
+        - Quantity 
+        - Dimensions
+        - Estimated Mass
+        - Condition
+        - Contact details;
+            - Contact Name
+            - Contact Email 
+            - Contact Phone Number 
+        - Date of Removal (datepicker)
+        - Item Location 
+        - Image Upload 
+    - The Add Item button at the bottom is the submit button for the form. 
 - **Profile**
-    - x 
+    - Profile page shows the users username at the top of the page. 
+    - Below the username, there is a 3 input form prefilled eith the users first name, last name and email. 
+    - this form is the edit user function and below it are the 2 buttons;
+        - Delete - Which obviously deletes the user with a defensive programming modal you must click before deleting. 
+        - Edit - the submit button for the form. 
 - **My Items**
-    - x 
+    - My items is very similar to the items page except without the search form and it only shows items created by the logged in user. 
+    - If the user has not posted yet it will say no items found and prompt them to create an item. 
+    - Also on the My Items page, each item they have posted has an edit button that will bring them to the edit item page. 
+- **Edit Items**
+    - Very similar to the Add Item form, edit item features a 12 input form as users are not allowed edit their image of the item. 
+    - There is a cancel button if a user accidentally pressed the edit button that will bring them back to their posted items. 
+    - There is also a Delete button to delete the item (again with defensive programming to avoid accidental deletion). 
+    - And of course the edit button which submits the edit form. 
 - **Manage Item Types**
-    - x 
-- **Logout**
-    - x 
-
+    - This page is only available to the admin of Restruction. 
+    - You can view what it looks like <a href="./static/images/readme/manage_item_types_preview.png"> here.</a>
+    - There is a large add item type button that brings you to the Add item type page again only viewable to the admin. 
+    - You can view what it looks like <a href="./static/images/readme/add_item_type_preview.png"> here.</a>
+    - The manage items page features all 14 item types. 
+- **404 Error Page**
+    - I created a custom 404 page for when someone finds themselves with an incorrect url. 
+    - It tells the user what has gone wrong and then offers them a way to get back on track and also an option to contact the admin team to help fix the problem. 
+- **500 Error Page**
+    - I created a custom 500 page for when someone finds themselves on a broken page or link. 
+    - It tells the user what has gone wrong and then offers them a way to get back on track and also an option to contact the admin team to help fix the problem. 
 
 ### Future Features
-- x
+- Interactive map 
+    - In the future I think an interactive map would be perfect for Reconstruction. 
+    - It would feature every single posted item and it's location so you could view what items are near you and then click on them to show the item details. 
+    - Althought this feature would not be a neccessity, it would really help the usability of the app. 
+- 3D object modelling
+    - When someone inserts the dimensions, I would like a 3d object be created through CAD automation so you could see the size and shape more realistically. 
+    - Also if the item has a previously drown CAD file, that it could be uploaded and have a viewer within the item view. 
 
-<h1 align="center"><img src="x"/></h1>
+<h1 align="center"><img src="./static/images/readme/restruction_preview3.jpeg"/></h1>
 
 ## Technologies Used
 
