@@ -19,6 +19,8 @@ can help just one item from unnecessarily being destroyed, it is a victory!
 
 **[Features](#features)**
 
+**[Information Archeticture](#information-architecture)**
+
 **[Technologies Used](#technologies-used)**
 
 **[Testing](#testing)**
@@ -204,6 +206,64 @@ can help just one item from unnecessarily being destroyed, it is a victory!
 
 <h1 align="center"><img src="./static/images/readme/restruction_preview3.jpeg"/></h1>
 
+## Information Architecture 
+
+### Database Choice
+While a SQL database may have suited Restruction better, I had a very clear outline of how I wanted the data to segment and organize itself
+ and I felt with my skills and experience, MongoDb gave me the best opportunity to achieve a high quality database that would be easily understood 
+ and interacted with. 
+
+### Data Storage Types
+The only types of data stored in MongoDb for Restruction are;
+- ObjectId
+- String
+I played with the idea of using DateTime and Boolean but it was unnecessary and overcomplicating things for no reason. Just strings has worked very well for Restruction. 
+
+### Collections Data Structure
+
+Restruction contains three database collections:
+
+#### Users Collection
+
+| Title | Key in db | Data type |
+--- | --- | --- | --- 
+Account id | _id | ObjectId 
+First Name | first_name | string
+Last Name | last_name | string
+Username | username | string
+Email Address | email | string
+Password | password | string
+
+#### Items Collection
+
+| Title | Key in db | Data type |
+--- | --- | --- | --- 
+Item id | _id | ObjectId 
+Item Name | item_name | string
+Item Type | item_type | string
+Item Description | item_description | string
+Quantity | quantity | string
+Dimensions  | dimensions  | string
+Estimated Mass | estimated_mass | string
+Condition | condition | string
+Contact Name | contact_name | string
+Contact Email | contact_email | string
+Contact Phone | contact_phone | string
+Date of Removal | date_of_destruction | string
+Item Location | item_location | string
+Photo URL | photo_url | string
+Created By | created_by | string
+
+
+#### Item Types Collection
+
+| Title | Key in db | Data type |
+--- | --- | --- | --- 
+Item id | _id | ObjectId 
+Item Type | item_type | string
+
+- The Users collection username is pulled into the add_items form automatically and then stored in the items collection under "created_by". 
+
 ## Technologies Used
 
 ### Languages Used
@@ -211,18 +271,21 @@ can help just one item from unnecessarily being destroyed, it is a victory!
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
-- [Python] (https://en.wikipedia.org/wiki/Python_(programming_language))
+- [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 ### Frameworks, Libraries, and Programs Used
 
-- [Bootstrap v5.0](https://getbootstrap.com/) - Used for the responsive layout as well as custom components such as navigation bar.
-- [jquery](https://jquery.com/) - jQuery was used to create elements of the game's functionality.
-- [Font Awesome](https://fontawesome.com/) - Font Awesome was used to add the hamburger menu icon for tablet and smaller screens.
-- [Google Fonts](https://fonts.google.com/) - Google Fonts was used to import 'Bangers' and 'Montserrat' fonts in the main.css stylesheet.
-- [Git](https://git-scm.com/) - Git was used allowing for tracking of any changes in the code and the version control.
+- [PIP](https://pip.pypa.io/en/stable/installing/) - PIP was used to install the tools needed for Restruction. 
+- [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03) - Git was used to handle version control. 
+- [MongoDB](https://www.mongodb.com/cloud/atlas) - MongoDB was used as the Database for Restruction. 
+- [Github](https://github.com/) - Github was used to store the code remotely. 
 - [GitPod](https://www.gitpod.io/) - GitPod, connected to GitHub, hosted the coding space and allowed the projected to be committed to the Github repository.
-- [Github](https://github.com/) - GitHub is used to host the project files and publish the live website by using Git Pages.
-- [Photoshop](https://www.adobe.com/ie/products/photoshop.html) - Photoshop was used to resize all the images used on the site and design each card.
+- [Heroku](https://www.heroku.com/home) - Heroku is where Restruction was deployed. 
+- [jquery](https://jquery.com/) - jQuery was used to help DOM manipulation.
+- [jasmine](https://jasmine.github.io/) - Jasmine was 
+- [Font Awesome](https://fontawesome.com/) - Font Awesome was used to add all the icons on the site.
+- [Google Fonts](https://fonts.google.com/) - Google Fonts was used to import 'Raleway' font in the style.css stylesheet.
+- [Photoshop](https://www.adobe.com/ie/products/photoshop.html) - Photoshop was used to resize any images used on the site.
 - [Adobe XD](https://www.adobe.com/ie/products/xd.html) - Adobe XD was used to create wireframes and mockups.
 
 ## Testing
