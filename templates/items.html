@@ -22,7 +22,7 @@
             </div>
         </form>
     </div>
-
+    {% if items|length > 0 %}
     <ul class="collapsible">
         {% for item in items %}
         <li>
@@ -81,5 +81,9 @@
         </li>
         {% endfor %}
     </ul>
+    {% else %}
+    <h4 class="red-text center-align">No items found</h4>
+    <p class="center-align">Please search for another keyword or reset via the button above.</p>
+    {% endif %}
 </div>
 {% endblock %}
