@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
+    <!-- page showing all items -->
     <h3 class="center-align page-header">All Items</h3>
 
     <div class="card-panel green lighten-4 center-align">
+        <!-- search form below -->
         <form action="{{ url_for('search') }}" method="POST" id="search_item_form">
             <div class="row">
                 <div class="input-field col s12">
@@ -22,6 +24,7 @@
             </div>
         </form>
     </div>
+    <!-- if statement if there are no items to show, show a message -->
     {% if items|length > 0 %}
     <ul class="collapsible">
         {% for item in items %}
@@ -81,6 +84,7 @@
         </li>
         {% endfor %}
     </ul>
+    <!-- Else statement showing message if no items -->
     {% else %}
     <h4 class="red-text center-align">No items found</h4>
     <p class="center-align">Please search for another keyword or reset via the button above.</p>

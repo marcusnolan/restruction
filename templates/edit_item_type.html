@@ -2,7 +2,7 @@
 {% block content %}
 <div class="container">
     <h3 class="center-align page-header">Edit Item Type</h3>
-
+    <!-- Edit Item type functionality. Only available to admin -->
     <div class="row">
         <div class="input-field col s12">
             <form class="col s12" method="POST" action="{{ url_for('edit_item_type', item_type_id=item_type._id) }}">
@@ -25,7 +25,7 @@
                             Type</a>
                     </div>
 
-                    <!-- Modal Structure -->
+                    <!-- Modal Structure to avoid accidental deleting -->
                     <div id="modal2" class="modal">
                         <div class="modal-content">
                             <h4>Are you sure?</h4>

@@ -3,9 +3,11 @@
 <div class="container">
     <div class="row">
         <div class="col s12 m8 offset-m2 input-field">
+            <!-- car showing users username -->
             <div class="card-panel green lighten-2">
                 <h3 class="center-align white-text">{{ user.username }}'s Profile</h3>
             </div>
+            <!-- form to edit user details -->
             <form class="col s12" method="POST" action="{{ url_for('edit_users', users_id=user._id) }}">
                 <div class="row">
                     <div class="input-field col s6">
@@ -37,6 +39,7 @@
                     </div>
                 </div>
             </form>
+            <!-- Contact CTA in case any issues with the account or they would like an item_type added -->
             <div class="center-align">
                 <p>If you have any issues with your account or you would like an item category added, please feel free
                     to

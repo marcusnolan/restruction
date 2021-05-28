@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
+    <!-- Manage Item types function only available to admin -->
     <h3 class="center-align page-header">Manage Item Types</h3>
 
     <div class="row">
         <div class="col s12 center-align">
+            <!-- buton to add item type -->
             <a href="{{ url_for('add_item_type') }}" class="btn-large light-blue">
                 Add Item Type <i class="fas fa-plus-square right"></i>
             </a>
@@ -19,6 +21,7 @@
                     <span class="card-title">{{ item_type.item_type }}</span>
                 </div>
                 <div class="card-action">
+                    <!-- buton to edit item type -->
                     <a href="{{ url_for('edit_item_type', item_type_id=item_type._id) }}"
                         class="btn light-blue accent-4">Edit</a>
                 </div>

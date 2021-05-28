@@ -1,18 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!-- Main feature image on home page below -->
 <img src="../static/images/restruction-banner.jpg" alt="Restruction Banner" class="banner-image">
 <div class="container">
+    <!-- text about Restruction and issue of carbon produced by construction industry -->
     <h4 class="center-align">What is Restruction?</h4>
     <p>Restruction is an app developed for the construction industry to post and find items or materials that are
         perfectly good to be reused but have no home to go to. Rather than let these items go to waste, we aim on
         finding a new home for them through our app. </p>
-        <img class="responsive-img" src="../static/images/restruction1.jpg" alt="Restruction Home Page Image">
-    <p>Our aim is to reduce the vast carbon footprint produced by the construction industry (40% of the entire world's carbon) by saving one salvagable
+    <img class="responsive-img" src="../static/images/restruction1.jpg" alt="Restruction Home Page Image">
+    <p>Our aim is to reduce the vast carbon footprint produced by the construction industry (40% of the entire world's
+        carbon) by saving one salvagable
         item at a time from going to waste. Register via the button at the top right and join the movement if you work
         within the construction industry and have items to post or are in search of salvageable items.
     </p>
-    <p>Have a browse around our site and below you will find the 10 most recent posts so you can get an understanding of what restruction offers.</p>
+    <p>Have a browse around our site and below you will find the 10 most recent posts so you can get an understanding of
+        what restruction offers.</p>
+    <!-- Collapsable with only 10 items and features most recent posts from newest to oldest -->
     <h4 class="center-align">Most Recent Posts</h4>
     <ul class="collapsible">
         {% for item in items %}

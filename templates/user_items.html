@@ -1,78 +1,84 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container">
+    <!-- Page showing session users posted items -->
     <h3 class="center-align page-header">Your Posted Items</h3>
     {% if session.user %}
-        {% if items|length > 0 %}
-        <ul class="collapsible">
-            {% for item in items %}
-            <li>
-                <div class="collapsible-header">
-                    <div class="col s3 vertical-align-center">
-                        <i class="fas fa-caret-down"></i>
-                        <a href="{{ url_for('edit_item', item_id=item._id) }}"
-                            class="waves-effect waves-light btn-small">Edit</a>
-                    </div>
-                    <span><strong>{{ item.item_name }}</strong><br>
-                        {{ item.item_type }}
-                    </span>
+    <!-- If statement to show message if the user has not yet posted any items -->
+    {% if items|length > 0 %}
+    <ul class="collapsible">
+        <!-- normal item collapsible seen on item and home pages -->
+        {% for item in items %}
+        <li>
+            <div class="collapsible-header">
+                <div class="col s3 vertical-align-center">
+                    <i class="fas fa-caret-down"></i>
+                    <a href="{{ url_for('edit_item', item_id=item._id) }}"
+                        class="waves-effect waves-light btn-small">Edit</a>
                 </div>
-                <div class="collapsible-body">
-                    <div class="row alternate-row-a center-align">
-                        <strong>Description:</strong>
-                        <p>{{ item.item_description }}</p>
-                    </div>
-                    <div class="row">
-                        <div class="col s6 alternate-row-b center-align">
-                            <strong>Quantity:</strong>
-                            <p>{{ item.quantity }}</p>
-                        </div>
-                        <div class="col s6 alternate-row-b center-align">
-                            <strong>Dimensions:</strong>
-                            <p>{{ item.dimensions }}</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col s6 alternate-row-a center-align">
-                            <strong>Estimated Mass:</strong>
-                            <p>{{ item.estimated_mass }}</p>
-                        </div>
-                        <div class="col s6 alternate-row-a center-align">
-                            <strong>Condition:</strong>
-                            <p>{{ item.condition }}</p>
-                        </div>
-                    </div>
-                    <div class="row alternate-row-b center-align">
-                        <strong>Contact:</strong>
-                        <p>{{ item.contact_name }}, <a href="mailto:{{ item.contact_email }}"><i
-                                    class="fas fa-envelope-square"> </i> {{ item.contact_email }}</a>,
-                            <a href="tel:{{ item.contact_phone }}"><i class="fas fa-phone"> </i>
-                                {{ item.contact_phone }}</a></p>
-                    </div>
-                    <div class="row alternate-row-a center-align">
-                        <strong>Date of Removal (yyyy/mm/dd):</strong>
-                        <p>{{ item.date_of_destruction }}</p>
-                    </div>
-                    <div class="row alternate-row-b center-align">
-                        <strong>Item Location:</strong>
-                        <p>{{ item.item_location }}</p>
-                    </div>
-                    <div class="col s12 alternate-row-a center-align">
-                        <strong>Image:</strong><br> <img src="{{ item.photo_url }}" alt="{{ item.item_name }} image"
-                            style="height: auto; width: 50%;">
-                    </div>
-                    <em>Uploaded By: {{ item.created_by }}</em>
+                <span><strong>{{ item.item_name }}</strong><br>
+                    {{ item.item_type }}
+                </span>
+            </div>
+            <div class="collapsible-body">
+                <div class="row alternate-row-a center-align">
+                    <strong>Description:</strong>
+                    <p>{{ item.item_description }}</p>
                 </div>
-            </li>
-            {% endfor %}
-        </ul>
-        {% else %}
-        <div class="center-align row">
-            <h4 class="red-text center-align">No items found</h4>
-            <p class="center-align">You have not yet posted any items. If you would like to post an item now, click the button below.</p>
-            <a href="{{ url_for('add_item') }}" class="btn large green lighten-2 center-align">Add Item<i class="fas fa-plus-square right"></i></a>
-        </div>
-        {% endif %}
+                <div class="row">
+                    <div class="col s6 alternate-row-b center-align">
+                        <strong>Quantity:</strong>
+                        <p>{{ item.quantity }}</p>
+                    </div>
+                    <div class="col s6 alternate-row-b center-align">
+                        <strong>Dimensions:</strong>
+                        <p>{{ item.dimensions }}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6 alternate-row-a center-align">
+                        <strong>Estimated Mass:</strong>
+                        <p>{{ item.estimated_mass }}</p>
+                    </div>
+                    <div class="col s6 alternate-row-a center-align">
+                        <strong>Condition:</strong>
+                        <p>{{ item.condition }}</p>
+                    </div>
+                </div>
+                <div class="row alternate-row-b center-align">
+                    <strong>Contact:</strong>
+                    <p>{{ item.contact_name }}, <a href="mailto:{{ item.contact_email }}"><i
+                                class="fas fa-envelope-square"> </i> {{ item.contact_email }}</a>,
+                        <a href="tel:{{ item.contact_phone }}"><i class="fas fa-phone"> </i>
+                            {{ item.contact_phone }}</a></p>
+                </div>
+                <div class="row alternate-row-a center-align">
+                    <strong>Date of Removal (yyyy/mm/dd):</strong>
+                    <p>{{ item.date_of_destruction }}</p>
+                </div>
+                <div class="row alternate-row-b center-align">
+                    <strong>Item Location:</strong>
+                    <p>{{ item.item_location }}</p>
+                </div>
+                <div class="col s12 alternate-row-a center-align">
+                    <strong>Image:</strong><br> <img src="{{ item.photo_url }}" alt="{{ item.item_name }} image"
+                        style="height: auto; width: 50%;">
+                </div>
+                <em>Uploaded By: {{ item.created_by }}</em>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    <!-- Else statement to show user they have not posted any items yet -->
+    {% else %}
+    <div class="center-align row">
+        <h4 class="red-text center-align">No items found</h4>
+        <p class="center-align">You have not yet posted any items. If you would like to post an item now, click the
+            button below.</p>
+        <a href="{{ url_for('add_item') }}" class="btn large green lighten-2 center-align">Add Item<i
+                class="fas fa-plus-square right"></i></a>
+    </div>
+    {% endif %}
     {% endif %}
 </div>
 {% endblock %}

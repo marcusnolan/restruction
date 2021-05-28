@@ -2,16 +2,18 @@
 {% block content %}
 <div class="container">
     <h3 class="center-align page-header">Add Item</h3>
-
+    <!-- Add Item form below. available to all registered users -->
     <div class="row">
         <div class="input-field col s12">
-            <form class="col s12" method="POST" action="{{ url_for('add_item') }}" id="add_item_form" enctype="multipart/form-data">
+            <form class="col s12" method="POST" action="{{ url_for('add_item') }}" id="add_item_form"
+                enctype="multipart/form-data">
                 <div class="row">
                     <div class="input-field col s6">
                         <input id="item_name" name="item_name" type="text" class="validate" minlength="5" maxlength="50"
                             required>
                         <label for="item_name">Item Name</label>
                     </div>
+                    <!-- dropdown for item_type below -->
                     <div class="input-field col s6">
                         <select name="item_type" id="item_type" form="add_item_form" required>
                             <option value="" selected disabled>Choose Item Type</option>
@@ -83,6 +85,7 @@
                         <label for="contact_phone">Contact Phone</label>
                     </div>
                 </div>
+                <!-- Date of removal datepicker below -->
                 <div class="row">
                     <div class="input-field col s12">
                         <input type="text" class="datepicker validate" name="date_of_destruction"
@@ -92,8 +95,9 @@
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input id="item_location" name="item_location" type="text"
-                            class="validate" minlength="5" maxlength="150" placeholder="e.g 32 London Bridge St, London, SE1 9SG, U.K" required></input>
+                        <input id="item_location" name="item_location" type="text" class="validate" minlength="5"
+                            maxlength="150" placeholder="e.g 32 London Bridge St, London, SE1 9SG, U.K"
+                            required></input>
                         <label for="item_location">Item Location</label>
                     </div>
                 </div>

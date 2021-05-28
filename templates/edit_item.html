@@ -2,13 +2,14 @@
 {% block content %}
 <div class="container">
     <h3 class="center-align page-header">Edit Item</h3>
-
+    <!-- Edit item form available to all logged in users -->
     <div class="row">
         <div class="input-field col s12">
             <form class="col s12" method="POST" action="{{ url_for('edit_item', item_id=item._id) }}"
                 id="add_task_form">
                 <div class="row">
                     <div class="input-field col s6">
+                        <!-- each input value is preloaded with the existing details -->
                         <input id="item_name" name="item_name" type="text" class="validate" minlength="5" maxlength="50"
                             value="{{ item.item_name }}" required>
                         <label for="item_name">Item Name</label>
@@ -94,7 +95,7 @@
                         </button>
                         <a class="waves-effect waves-light btn large red modal-trigger" href="#modal1">Delete Item</a>
 
-                        <!-- Modal Structure -->
+                        <!-- Modal Structure to avoid accidental deletion -->
                         <div id="modal1" class="modal">
                             <div class="modal-content">
                                 <h4>Are you sure?</h4>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- All necessary scripts and links only on base.html as all other pages extend from base.html -->
 
 <head>
     <meta charset="UTF-8">
@@ -11,7 +12,7 @@
         type="text/css">
     <script src="https://kit.fontawesome.com/1c37b70938.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    <link rel="icon" type="image/png" href="../static/images/restruction_favicon.png"/>
+    <link rel="icon" type="image/png" href="../static/images/restruction_favicon.png" />
     {% block styles %}
     {% endblock %}
     <title>Restruction</title>
@@ -19,18 +20,22 @@
 
 <body>
 
+    <!-- Entire site header is below -->
     <header>
         <nav class="nav-extended green lighten-2">
             <div class="nav-wrapper">
                 <a href="{{ url_for('home') }}" class="brand-logo"> <i id="restruction-logo" class="fas fa-recycle"></i>
                     Restruction</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
+                <!-- Main menu below -->
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('home') }}">Home</a></li>
+                    <!-- only logged in users will see the below options until the else statement -->
                     {% if session.user %}
                     <ul id="my-account-dropdown" class="dropdown-content">
                         <li><a href="{{ url_for('profile', username=session['user']) }}">Profile</a></li>
                         <li><a href="{{ url_for('user_items') }}">My Items</a></li>
+                        <!-- Manage item types page is only available to admin -->
                         {% if session.user|lower == "admin"|lower %}
                         <li><a href="{{ url_for('get_item_type') }}">Manage Item Types</a></li>
                         {% endif %}
@@ -41,6 +46,7 @@
                     <li><a class="dropdown-trigger" id="my-account-trigger"
                             href="{{ url_for('profile', username=session['user']) }}"
                             data-target="my-account-dropdown">My Account <i class="fas fa-sort-down"></i></a></li>
+                    <!-- Below options will only be shown to a user not logged in -->
                     {% else %}
                     <li><a href="{{ url_for('login') }}">Log In</a></li>
                     <li><a href="{{ url_for('register') }}">Register</a></li>
@@ -49,6 +55,7 @@
             </div>
         </nav>
 
+        <!-- Below menu is the same as above except for mobile and manage item type not available to mobile -->
         <ul class="sidenav" id="mobile-demo">
             <h4 class="center-align green-text text-lighten-2"> <i class="fas fa-recycle"></i> Restruction</h4>
             <li><a href="{{ url_for('home') }}">Home</a></li>
@@ -69,6 +76,7 @@
         </ul>
     </header>
 
+    <!-- Flash messages below e.g "Logged in", "Item added" etc.  -->
     <section>
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -84,11 +92,13 @@
     </section>
 
 
+    <!-- main block content below extends all template pages -->
     <main>
         {% block content %}
         {}
         {% endblock %}
     </main>
+    <!-- all necessary scripts below -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -96,15 +106,18 @@
     {% block scripts %}
     {% endblock %}
 
+    <!-- footer below -->
     <footer>
         <div class="container">
             <div class="row" id="footer-row">
+                <!-- Contact information in column below -->
                 <div class="col s12 m6 center-align white-text">
                     <h6>Contact Us</h6>
                     <p>If you have any questions or recommendations for the site, why not get in touch via the link
                         below!</p>
                     <a href="mailto:marcusnolan130@gmail.com"><i class="fas fa-envelope-square"> </i> Email us</a>
                 </div>
+                <!-- Main menu in column below. Will show same as menu in header (dependant if a user is logged in or not) -->
                 <div class="col s12 m6 center-align white-text">
                     <h6>Menu</h6>
                     <ul class="footer-menu">
