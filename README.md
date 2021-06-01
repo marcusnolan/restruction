@@ -226,7 +226,7 @@ Restruction contains three database collections:
 #### Users Collection
 
 | Title | Key in db | Data type |
---- | --- | --- | --- 
+--- | --- | ---
 Account id | _id | ObjectId 
 First Name | first_name | string
 Last Name | last_name | string
@@ -237,7 +237,7 @@ Password | password | string
 #### Items Collection
 
 | Title | Key in db | Data type |
---- | --- | --- | --- 
+--- | --- | --- 
 Item id | _id | ObjectId 
 Item Name | item_name | string
 Item Type | item_type | string
@@ -258,7 +258,7 @@ Created By | created_by | string
 #### Item Types Collection
 
 | Title | Key in db | Data type |
---- | --- | --- | --- 
+--- | --- | --- 
 Item id | _id | ObjectId 
 Item Type | item_type | string
 
@@ -326,7 +326,8 @@ Item Type | item_type | string
     </a> 
 
 ### HTML5 validator
-- Home - No errors or warnings  
+- Seen as you can't validate jinja, rather than input each page of HTML directly into the validator, I had to paste the deployed links into w3 validator. 
+- After a h4 tweak that was showing in the mobile menu, each page passed the validator with no errors and just one warning that was due to the jinja for loop for flash messages.   
 
 ### Testing User Stories form User Experience (UX) section
 - #### As a general user;
