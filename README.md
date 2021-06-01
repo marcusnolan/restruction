@@ -40,18 +40,29 @@ can help just one item from unnecessarily being destroyed, it is a victory!
     1. I want to be informed about Restruction's concept.
     2. I want to be able to navigate the website easily. 
     3. I want to see some sample items without having to register or login. 
-    4. I want to easily find the register page and login page. 
+    4. I want to easily find the register page and login page.
+    5. I want to be able to search for exactly what I am looking for without having to trawl through every posted item. 
+    6. I want to be able to edit my account.
 - #### As a construction industry professional;
     1. I want to understand the format and types of items being displayed without having to register or login. 
     2. I want to be prompted to register as a user. 
     3. I want to easily find the register and login page's. 
     4. I want to be able to post item's myself easily. 
     5. I want to be able to view items and search for items by their name. 
-    6. I want to be able to view iamges of items and upload my own images of items I have posted. 
+    6. I want to be able to view images of items and upload my own images of items I have posted. 
     7. I want to be able to edit and delete items I have posted. 
     8. I want to be able to edit my account. 
     9. I want to be able to set specific contact details for the items I post. 
     10. I want to set a date for which the item will be removed. 
+- #### As a charity/sustainability officer/self builder;
+    1. I want to be informed about Restruction's concept.
+    2. I want to be able to navigate the website easily. 
+    3. I want to see some sample items without having to register or login. 
+    4. I want to easily find the register page and login page. 
+    5. I want to be able to contact an item owner easily without having to fill out multiple forms etc. 
+    6. I want to judge to determine the items condition easily through a description and image. 
+    7. I want to be told when the item I am looking at will be removed/destroyed. 
+    8. I want to feel that the website has the right ethos and I would feel comfortable supporting it. 
 
 
 ### Design
@@ -287,62 +298,119 @@ Item Type | item_type | string
 - [Google Fonts](https://fonts.google.com/) - Google Fonts was used to import 'Raleway' font in the style.css stylesheet.
 - [Photoshop](https://www.adobe.com/ie/products/photoshop.html) - Photoshop was used to resize any images used on the site.
 - [Adobe XD](https://www.adobe.com/ie/products/xd.html) - Adobe XD was used to create wireframes and mockups.
+- [W3C Validator](https://validator.w3.org/#validate_by_uri) - This was used to validate the HTML code outlined in testing below.
+- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/validator) - This was used to validate the CSS code outlined in testing below.
+- [JShint](https://jshint.com/) - This was used to validate the JavaScript code outlined in testing below.
+- [PEP8 Online Check](http://pep8online.com/checkresult) - This was used to validate that all Python code was PEP8 compliant outlined in testing below.
+- [Extends Class Python Syntax Checker](https://extendsclass.com/python-tester.html) - This was used to validate the syntax of all Python code outlined in testing below.
+
 
 ## Testing
 
  ### Functionality Testing
 - #### Navigation bar
-    - x
+    - All links and buttons have been tested and are working. 
+    - The mobile menu button appears on screens smaller than 992px wide and when clicked it revelas the mobile menu sidebar from the right. 
+- #### Footer
+    - All links and buttons have been tested and are working. 
+    - The email button in contact triggers the users local email server for ease of use. 
 - #### Home page
-    - x
+    - collapsible drop down if 10 most recent items works correctly and only features ten and they are in correct order, newest to oldest. 
 - #### Register
-    - x
+    - Once the form is filled out, the account is registered and automatically logged in. 
+    - The 'login' button below the register form brings the user to the login page. 
 - #### Login
-    - x
+    - The login form works correctly and puts the user into session. 
+    The 'register account' button below the login form brings people to the register page. 
 - #### Logout
-    - x
+    - When clicking logout within the 'my profile' dropdown the user is promptly logged out and brought to the login page. 
 - #### Add Item
-    - x
+    - The 'add item' form and all it's elements work correctly. Once submitted the item is added to the database. 
+    - The add image button works correctly and uploads the image to Cloudinary. 
+    - All fields set as required work correctly as do all min and max lengths for inputs. 
 - #### Edit Item
-    - x
+    - All fields are preloaded with the existing items details when you go to edit an item. 
+    - The Image field is not editable as users should only ever change small details such as mass, quantity, dimensions or contact details.
+    if a user is looking to edit the image they should have to repost for accuracy. 
+    - When the form is refilled and ediit button clicked, the item is updated on the database. 
 - #### Delete Item
-    - x
+    - When in the edit item page, the delete item button works correctly and produces a modal. 
+    - This modal is some defensive programming to make sure whoever clicks the delete button ahs intended on it so you must click a 'permanently delete' button after to double check. 
 - #### Edit User
-    - x
+    - When clicking on the profile option within the my account dropdown, you are brought to the profile page which contains the edit user function. 
+    - The users information is preloaded and when changed, the edit user button submits the changes correctly. 
+    - The user can only change their first name, last name and email. We do not want users changing their username or password. 
 - #### Add Item Type
-    - x
-- #### Edit Item Type
-    - x
-- #### Delete Item Type
-    - x
+    - This function is only available to the user 'admin' which I have control of. 
+    - it works perfectly and looks like this;
+
+    <img style="width:500px;" src="./static/images/readme/add_item_type.png"/>
+- #### Edit/Delete Item Type
+    - These functions are only available to the user 'admin' which I have control of. 
+    - they work perfectly and looks like this;
+    
+    <img style="width:500px;" src="./static/images/readme/edit_item_type_preview.png"/>
 - #### Search Items
-    - x
+    - On the 'items' page, the search from works when a user enters the term of item they are looking for. 
+    - The form is then submitted with the button and it searches all items both names and descriptions for the term in question. 
+    - the reset button resets the search and clears the form. 
 
 ### CSS3 validator - Pass
-<a href="http://jigsaw.w3.org/css-validator/check/referer">
+<a href="https://jigsaw.w3.org/css-validator/validator">
         <img style="border:0;width:88px;height:31px"
             src="http://jigsaw.w3.org/css-validator/images/vcss"
             alt="Valid CSS!" />- Restruction
-    </a> 
+    </a>
+<img src="./static/images/readme/css_validator.png"/>
 
 ### HTML5 validator
 - Seen as you can't validate jinja, rather than input each page of HTML directly into the validator, I had to paste the deployed links into w3 validator. 
-- After a h4 tweak that was showing in the mobile menu, each page passed the validator with no errors and just one warning that was due to the jinja for loop for flash messages.   
+- After a h4 tweak that was showing in the mobile menu, each page passed the validator with no errors and just one warning that was due to the jinja for loop for flash messages.  
+<img src="./static/images/readme/html_validator.png"/> 
+
+### JavaScript validator (JShint)
+- At the top of the script I had to let JShint know that I was using Jquery and also ES6 to avoid it giving errors for both of them. 
+- After that there were no errors. 
+<img src="./static/images/readme/JShint.png"/> 
+
+### Python Syntax Checker 
+- To check python syntax I used an online checker cited above in technologies used. 
+- It determened there are no syntax errors in my python. 
+<img src="./static/images/readme/python_syntax_checker.png"/> 
+
+### PEP8 Python Checker 
+- To check my compliance with PEP8, I used an online checker cited above in technologies used. 
+- It determened that my python was perfectly compliant. 
+<img src="./static/images/readme/PEP8_checker.png"/> 
 
 ### Testing User Stories form User Experience (UX) section
 - #### As a general user;
-    1. x
-        - x 
-
-- #### As a Construction Industry Professional;
-    1. x
-        - x 
-
-
-### JSHint
-- x 
-
-###
+    1. I want to be informed about Restruction's concept.
+    2. I want to be able to navigate the website easily. 
+    3. I want to see some sample items without having to register or login. 
+    4. I want to easily find the register page and login page.
+    5. I want to be able to search for exactly what I am looking for without having to trawl through every posted item. 
+    6. I want to be able to edit my account.
+- #### As a construction industry professional;
+    1. I want to understand the format and types of items being displayed without having to register or login. 
+    2. I want to be prompted to register as a user. 
+    3. I want to easily find the register and login page's. 
+    4. I want to be able to post item's myself easily. 
+    5. I want to be able to view items and search for items by their name. 
+    6. I want to be able to view images of items and upload my own images of items I have posted. 
+    7. I want to be able to edit and delete items I have posted. 
+    8. I want to be able to edit my account. 
+    9. I want to be able to set specific contact details for the items I post. 
+    10. I want to set a date for which the item will be removed. 
+- #### As a charity/sustainability officer/self builder;
+    1. I want to be informed about Restruction's concept.
+    2. I want to be able to navigate the website easily. 
+    3. I want to see some sample items without having to register or login. 
+    4. I want to easily find the register page and login page. 
+    5. I want to be able to contact an item owner easily without having to fill out multiple forms etc. 
+    6. I want to judge to determine the items condition easily through a description and image. 
+    7. I want to be told when the item I am looking at will be removed/destroyed. 
+    8. I want to feel that the website has the right ethos and I would feel comfortable supporting it. 
 
 ### Usability Testing
 - x

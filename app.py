@@ -284,7 +284,7 @@ def delete_item_type(item_type_id):
 @app.route("/edit_users/<users_id>", methods=["GET", "POST"])
 def edit_users(users_id):
     """
-    This is the route to edit a user and only allows users to edit their name 
+    This is the route to edit a user and only allows users to edit their name
     and email.
     """
     if request.method == "POST":
