@@ -505,10 +505,28 @@ Item Type | item_type | string
 
 
 ### Fixed Bugs
-- x
+- Edit User Bug
+    - The original bug was actually presented to me by jinja saying I had a problem with my h3 on the profile page that just took the users username in the h3 but jinja was showing an error. 
+    - Seen as I was only letting users edit their name and email on their account, whenever a user went to do so, their username and password were then deleted. I was baffled by this and spent 
+    a lot of time trying to get it right. I knew the problem was that I was actually updating all 5 fields but not passing any details for username and password so they were being deleted and 
+    then my h3 could not find a username so the error was showing. 
+    - I knew the fix was to use a $set when updating Mongo but even when I had that in perfectly, it would not work. 
+    - I eventually realized it was because I was calling users when I should have been calling for a user. It was then fixed and working perfectly. 
+- Search for an existing username OR email when registering
+    - Although it may have been slightly unecessary and caused me a lot of time, I really wanted the register function to search for both existing username and email when registering a new user. 
+    - I spent a huge amount of time going through different documentation on MongoDB etc and could not get it working until I realised with pymongo, it will not accept a $or statement without it 
+    being in speech marks and each statement in the "$or" must be aligned perfectly with each other. 
+    - I managed to troubleshoot myself and learnt an incredible amount just from spending hours on this one problem. 
+- Uploading images
+    - Similarly to above, while it may have been unecessary for the requirements for the project, I really wanted to let my users be able to upload an image from their device rather than uploading
+    a url to the add_item form. I spent quite a bit of time and my mentor and people on slack tried to talk me out of it and get to move on but I really wanted that functionality, no matter how 
+    long it took. 
+    - Originally I was going to try MongoDB Grid but I kept on hearing about Cloudinary on slack and online so I registered and though I had everything wired up correctly but I was getting no where. 
+    - I was getting the photo from the form, passing it into Cloudinary, getting the secure_url and passing it into a review dictionary - but then I wasn’t doing anything with that dictionary. 
+    - I had to pass all the data together with the other data from the form into the item dictionary where as I was doing it seperately. 
 
 ### Ongoing Bugs
-- x 
+- There are currently no ongoing bugs. 
 
 ## Deployment 
 
