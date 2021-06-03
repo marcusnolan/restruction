@@ -43,10 +43,10 @@
                         <label for="quantity">Quantity</label>
                     </div>
                     <div class="input-field col s6">
-                        <input placeholder="e.g m^3 for metres cubed" id="measurement_unit" name="measurement_unit"
-                            value="{{ item.measurement_unit }}" type="text" class="validate" minlength="1"
+                        <input placeholder="L x W x H (e.g 2400mm x 1000mm x 8mm)" id="dimensions" name="dimensions"
+                            value="{{ item.dimensions }}" type="text" class="validate" minlength="1"
                             maxlength="50">
-                        <label for="measurement_unit">Measurement Unit</label>
+                        <label for="dimensions">Dimensions</label>
                     </div>
                 </div>
                 <div class="row">
@@ -83,6 +83,14 @@
                         <input type="text" class="datepicker validate" name="date_of_destruction"
                             id="date_of_destruction" value="{{ item.date_of_destruction }}" required>
                         <label for="date_of_destruction">Date Of Removal</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="item_location" name="item_location" type="text" class="validate" minlength="5"
+                            maxlength="150" value="{{ item.item_location }}"
+                            required>
+                        <label for="item_location">Item Location</label>
                     </div>
                 </div>
                 <div class="row">

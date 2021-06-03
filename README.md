@@ -60,7 +60,7 @@ can help just one item from unnecessarily being destroyed, it is a victory!
     3. I want to see some sample items without having to register or login. 
     4. I want to easily find the register page and login page. 
     5. I want to be able to contact an item owner easily without having to fill out multiple forms etc. 
-    6. I want to judge to determine the items condition easily through a description and image. 
+    6. I want to determine the items condition easily through a description and image. 
     7. I want to be told when the item I am looking at will be removed/destroyed. 
     8. I want to feel that the website has the right ethos and I would feel comfortable supporting it. 
 
@@ -386,49 +386,123 @@ Item Type | item_type | string
 ### Testing User Stories form User Experience (UX) section
 - #### As a general user;
     1. I want to be informed about Restruction's concept.
+        - Upon arrival on the home page, the first thing a user sees as they scroll is the paragraphs explaining reconstruction and it's concept. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing1.1.png" style="max-height: 250px"/>
     2. I want to be able to navigate the website easily. 
+        - The navbar is very obvious at the top of the page and consistent throughout the site. The footer also contains a menu for more ease of navigation. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing1.2a.png" style="max-height: 2500px"/>
+            <img src="./static/images/readme/user_story_testing/user_story_testing1.2b.png" style="max-height: 250px"/>
     3. I want to see some sample items without having to register or login. 
+        - The home page features the 10 most recently posted items for anyone to see, not just logged in users. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing1.3.png" style="max-height: 250px"/>
     4. I want to easily find the register page and login page.
+        - When a user has not yet registered or logged in, the login and register buttons are very visible in the navbar and footer menu. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing1.4.png" style="max-height: 250px"/>
     5. I want to be able to search for exactly what I am looking for without having to trawl through every posted item. 
+        - Once a user is logged in, there is an intuitive search that searchs both item names and item descriptions for whatever the user is searching for. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing1.5.png" style="max-height: 250px"/>
     6. I want to be able to edit my account.
+        - A user can edit their first name, last name and email via the profile page. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing1.6.png" style="max-height: 250px"/>
 - #### As a construction industry professional;
     1. I want to understand the format and types of items being displayed without having to register or login. 
+        - Before logging in, a user can check the format of each posted item via the 10 most recent items on the home page. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing2.1.png" style="max-height: 250px"/>
     2. I want to be prompted to register as a user. 
+        - In the second paragraph it states "Register via the button at the top right and join the movement if you work within the construction industry" prompting industry professionals to register. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing2.2.png" style="max-height: 250px"/>
     3. I want to easily find the register and login page's. 
+        - When a user has not yet registered or logged in, the login and register buttons are very visible in the navbar and footer menu.
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing1.4.png" style="max-height: 250px"/>
     4. I want to be able to post item's myself easily. 
+        - The Add Items page is very easy to locate and features a simple form that is easily understood and used. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing2.4.png" style="max-height: 250px"/>
     5. I want to be able to view items and search for items by their name. 
+        - On the All Items page, there is an intuitive search that searchs both item names and item descriptions for whatever the user is searching for.
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing2.5.png" style="max-height: 250px"/>
     6. I want to be able to view images of items and upload my own images of items I have posted. 
+        - Each posted item has an image section that shows the uploaded image at 50% width of the div and auto height. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing2.6.png" style="max-height: 250px"/>
     7. I want to be able to edit and delete items I have posted. 
+        - The edit item function intuitively preloads what a user has uploaded previously so they can just edit the text there and click edit to save. 
+        - The delete button also works correctly with some defensive programming to make sure a user has not accidentally deleted an item. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing2.7.png" style="max-height: 250px"/>
     8. I want to be able to edit my account. 
+        - A user can edit their first name, last name and email via the profile page.
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing1.6.png" style="max-height: 250px"/>
     9. I want to be able to set specific contact details for the items I post. 
+        - Rather than just taking the users details and preloading the item with them, the user posting can set whoever they like as the contact as they may only be posting on behlaf of someone. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing2.9.png" style="max-height: 250px"/>
     10. I want to set a date for which the item will be removed. 
+        - The add item form features a datepicker for the date of removal which users can then see when viewing the item. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing2.10.png" style="max-height: 250px"/>
 - #### As a charity/sustainability officer/self builder;
     1. I want to be informed about Restruction's concept.
+        - Upon arrival on the home page, the first thing a user sees as they scroll is the paragraphs explaining reconstruction and it's concept. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing1.1.png" style="max-height: 250px"/>
     2. I want to be able to navigate the website easily. 
+        - The navbar is very obvious at the top of the page and consistent throughout the site. The footer also contains a menu for more ease of navigation.
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing1.2a.png" style="max-height: 250px"/>
     3. I want to see some sample items without having to register or login. 
+        - The home page features the 10 most recently posted items for anyone to see, not just logged in users.
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing1.3.png" style="max-height: 250px"/>
     4. I want to easily find the register page and login page. 
+        - When a user has not yet registered or logged in, the login and register buttons are very visible in the navbar and footer menu.
+
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing1.4.png" style="max-height: 250px"/>
     5. I want to be able to contact an item owner easily without having to fill out multiple forms etc. 
-    6. I want to judge to determine the items condition easily through a description and image. 
+        - Contact details are shown on each item and you can do with them as you like rather than having to contact via email forms etc. 
+        - The email and phone also intuitively trigger the devices default email service and phone service when clicked for user experience. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing2.9.png" style="max-height: 250px"/>
+    6. I want to determine the items condition easily through a description and image. 
+        - Each item features both a condition section where the poster can describe it's current condition. 
+        - The image feature also means the user can determine the condition of the item themselves. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing3.6.png" style="max-height: 250px"/>
     7. I want to be told when the item I am looking at will be removed/destroyed. 
+        - Each item has a date of removal date picker that the poster has selected when the item will be removed. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing3.7.png" style="max-height: 250px"/>
     8. I want to feel that the website has the right ethos and I would feel comfortable supporting it. 
+        - The website features a welcoming light green colour Scheme and also has a light tone with wording to create a positive ethos. 
+
+            <img src="./static/images/readme/user_story_testing/user_story_testing3.8.png" style="max-height: 250px"/>
 
 ### Usability Testing
-- x
+- To test all aspects of Restruction, I had a few friends and family check out the site for any errors or glitches I didn't find. 
+- I also had my sister and a few of her architect friends register and add a few items while also testing links, functions and responsiveness with their different mobiles and tablets. 
+- Overall, the testers came from a variety of ages and backgrounds so they had varying of ability with regards to tech. 
 
 ### Compatibility Testing
 - Browser Compatibility on mobile, tablet and desktop;
     - Safari - successfull 
     - Chrome - successfull 
     - Firefox - successfull 
-    - Opera - successfull 
 
-- OS Compatibility was tested on iOS 14.3, Android 11.0, macOS Catalina 10.15.7, iPadOS 14.1, and Windows 10. 
-- The devices used in this testing include Macbook Pro Retina, Dell laptop, iPad Pro, iPhone 12 Pro Max, iPhone 6s, Samsung s9, and other android mobile phones.
+- OS Compatibility was tested on iOS 14.4.2, Android 11.0, macOS Big Sur 11.0.1, iPadOS 14.2, and Windows 10. 
+- The devices used in this testing include Macbook Pro m1, Dell laptop, iPad Pro 12 inch, iPhone 12 Pro Max, iPhone 6s, Samsung s9, and other android mobile phones.
 
-
-### Performance Testing
-- Overall WebPage Performance Test was done using [WebPageTest](https://www.webpagetest.org/) with the test location set to Dulles, USA and test browser set to Chrome. 
-    - Home - [Results](https://www.webpagetest.org/result/210201_Di1X_a89fe7e604cf33dcf9a88c370eb1c872/)
 
 ### Fixed Bugs
 - x
