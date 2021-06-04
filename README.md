@@ -530,19 +530,35 @@ Item Type | item_type | string
 
 ## Deployment 
 
-### Publishing the site
-This website was published using [GitHub Pages](https://pages.github.com/). The procedure is outlined below.
-1. Go to the GitHub website and log in.
-2. On the left-hand side, you'll see all your repositories, select the appropriate one. ([Repository](https://github.com/marcusnolan/Milestone-2-Go-Phish) used for this project).
-3. Under the name of your chosen Repository you will see a ribbon of selections, click on 'Settings' located on the right-hand side.
-4. Scroll down till you see the 'GitHub Pages' heading.
-5. Under the 'Source' click on the dropdown and select 'master branch' then under the next dropdown select '/docs' followed by pressing save.
-6. The page will reload and you'll see the link of your published page displayed under 'GitHub' pages.
-7. It takes a few minutes for the site to be published, wait until the background of your link changes to a green color before trying to open it.
+### Deploying Restruction
+Restruction was deployed using [Heroku](https://www.heroku.com/home). The procedure is outlined below.
+1. Create a `requirements.txt` file using the terminal command `pip freeze > requirements.txt`.
+2. Create a `Procfile` with the terminal command echo web: `python app.py > Procfile`.
+3. `git add` and `git commit` the new requirements and Procfile and then `git push` the project to GitHub.
+4. Create a new app on the Heroku website by clicking the "New" button in your dashboard. Give it a name and set the region to Europe.
+5. From the heroku dashboard of your newly created application, click on "Deploy" > "Deployment method" and select GitHub.
+6. Confirm the linking of the heroku app to the correct GitHub repository.
+7. In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
+8. Set the following config vars:
 
+| Key | Value |
+ --- | ---
+IP | 0.0.0.0
+MONGO_DBNAME | (e.g) restruction
+MONGO_URI | `mongodb+srv://<username>:<password>@<cluster_name>.6zpoa.mongodb.net/<database_name>?retryWrites=true&w=majority`
+PORT | 5000
+SECRET_KEY | `<your_secret_key>`
+- I am also using Cloudinary API for images so you must add 3 more config variables at a later stage to Heroku for that to work. 
+- To get you MONGO_URI read the MongoDB Atlas documentation [here](https://docs.atlas.mongodb.com/)
+
+8. In the heroku dashboard, click "Deploy".
+
+9. In the "Manual Deployment" section of this page, made sure the master branch is selected and then click "Deploy Branch".
+
+10. The site is now successfully deployed.
 
 ### Cloning 
-If you wish to clone or download this repository to your local device you can follow the procedure outlined below.
+If you wish to clone run a version of the site locally, you can clone this repository using the following steps;
 1. Go to the GitHub website and log in.
 2. Locate the [Repository](https://github.com/marcusnolan/Milestone-2-Go-Phish) used for this project.
 3. Under the Repository name locate 'the 'code' button which is to the left of the 'gitpod' button in green.
@@ -551,19 +567,91 @@ If you wish to clone or download this repository to your local device you can fo
 6. Type `Git Clone` and paste the URL you copied from GitHub.
 7. To create your local clone press `Enter`
 
+### Installing requirements
+- Install all requirements modules to your local IDE with the following CL:
+
+```
+ pip3 install -r requirements.txt
+```
+
+#### Creating a Collection in MongoDB
+- Login to your MongoDB account
+- Create a Cluster
+- Create a database using whatever architecture you prefer. The Restruction architecture is listed above in **[Information Archeticture](#information-architecture)**
+
+#### Setup Environmental Variables
+- Create a '.gitignore' file in the root directoy
+- Add 'env.py' and '__pycache__/' to the file list within .gitignore
+- Create a 'env.py' file
+- In the 'env.py' file write the following code;
+
+```
+import os
+
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("MONGO_DBNAME", "[UNIQUE ID]")
+os.environ.setdefault("MONGO_URI", "[UNIQUE ID]")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "[UNIQUE ID]")
+
+```
+
+Note: For each section noted as [UNIQUE ID], you will need to provide your own unique identifier. These must also be aligned to Heroku environmental variables outlined above.
+
+### Setup Unique Identifies / Environment Variables
+
+#### SECRET_KEY
+
+This is required when using flash() and session() functions in flask. The key can be whatever you want, but it's advisable to use a randomly generated secure key.
+
+#### MONGO_URI
+
+This is used to connect you application to your MongoDB cluster.
+
+- Click 'Overview' tab from your Cluster, followed by 'Connect'.
+- Select 'Connect your application' from the window that opens.
+- Select your correct version of Python and copy the connection string.
+- Replace the 'username' and 'password' text, with the relevant criteria you setup in 'Database Access'.
+
+#### MONGO_DBNAME
+
+This is the name of your database in MongoDB. Which can be foung under the 'Collections' tab, under your cluster. (e.g restruction)
+
+#### Running Development Server
+
+To launch a Http server using the development mode code for the application, use the following command in your IDE:
+
+```
+
+python3 app.py http.server
+
+```
+
+The IDE will then open a port with http address for you to access.
+
+
+
 ## Credits
 
 ### Code
-- x
+- All the code written for Restruction was written by me. 
+- For the basics of the site I followed Code Institutes recorded videos but for all additional features, I went off piste and pushed my ability. 
+- I also use Materialize CSS as a framework which was helped a huge amount. 
 
 ### Content 
 - Writing up the README file;
-    - x
+    - I used my previous README from my MS2 project that received good feedback but needed a few changes. 
+    - I also took inspiration from a few alumni such as Anna Greaves on her MS3 README. 
+- All content on the site was written by myself. 
 
 ### Media 
-- x
+- I downloaded both images on the home page via [pixabay](https://pixabay.com/) and [Unsplash](https://unsplash.com/) which are two fantastic 
+royalty free image websites. 
 
 ### Acknowledgements
-- x. 
-- Thank you to everyone who took their time to provide me constructive feedback on the Slack community page and of course my friends and family.
+- My biggest thank you has to go out to my wonderful sister Andrea who is an Architect in London for a brilliant firm that do an awful lot for the industry and the environment. 
+They are one of the most progressive firms in the country and do some incredible work. 
+- She gave me the idea for Restruction and as soon as she said it to me, I was hooked. 
+- Thank you to everyone who took their time to provide me constructive feedback on the Slack community page (especially Igor and Anna) and of course my friends and family.
+- Also the tutor team were very helpful on ore or two topics I was struggling with so I must thank them. 
 - Big thanks to my mentor for putting up with my many questions, giving me great insights, and going above and beyond their position to help me.
