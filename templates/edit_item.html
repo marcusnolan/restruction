@@ -8,13 +8,13 @@
             <form class="col s12" method="POST" action="{{ url_for('edit_item', item_id=item._id) }}"
                 id="add_task_form">
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col m6 s12">
                         <!-- each input value is preloaded with the existing details -->
                         <input id="item_name" name="item_name" type="text" class="validate" minlength="5" maxlength="50"
                             value="{{ item.item_name }}" required>
-                        <label for="item_name">Item Name</label>
+                        <label for="item_name">Item Name (Required)</label>
                     </div>
-                    <div class="input-field col s6">
+                    <div class="input-field col m6 s12">
                         <select name="item_type" id="item_type" form="add_task_form" required>
                             {% for item_type in item_type %}
                             {% if item_type.item_type == item.item_type %}
@@ -24,7 +24,7 @@
                             {% endif %}
                             {% endfor %}
                         </select>
-                        <label for="item_type">Item Type</label>
+                        <label for="item_type">Item Type (Required)</label>
                     </div>
                 </div>
                 <div class="row">
@@ -33,16 +33,16 @@
                             class="materialize-textarea validate" minlength="5" maxlength="150" required>
                         {{- item.item_description -}}
                     </textarea>
-                        <label for="item_description">Item Description</label>
+                        <label for="item_description">Item Description (Required)</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col m6 s12">
                         <input id="quantity" value="{{ item.quantity }}" name="quantity" type="text" class="validate"
                             minlength="1">
                         <label for="quantity">Quantity</label>
                     </div>
-                    <div class="input-field col s6">
+                    <div class="input-field col m6 s12">
                         <input placeholder="L x W x H (e.g 2400mm x 1000mm x 8mm)" id="dimensions" name="dimensions"
                             value="{{ item.dimensions }}" type="text" class="validate" minlength="1"
                             maxlength="50">
@@ -50,29 +50,29 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s6">
+                    <div class="input-field col m6 s12">
                         <input placeholder="e.g 2 Tonnes" id="estimated_mass" name="estimated_mass" type="text"
                             value="{{ item.estimated_mass }}" class="validate" minlength="1" maxlength="50">
                         <label for="estimated_mass">Estimated Mass</label>
                     </div>
-                    <div class="input-field col s6">
+                    <div class="input-field col m6 s12">
                         <input placeholder="e.g Very Good" id="condition" name="condition" type="text" class="validate"
                             value="{{ item.condition }}" minlength="2" maxlength="50" required>
-                        <label for="condition">Condition</label>
+                        <label for="condition">Condition (Required)</label>
                     </div>
                 </div>
                 <div class="row">
-                    <div class="input-field col s4">
+                    <div class="input-field col m4 s12">
                         <input id="contact_name" name="contact_name" type="text" class="validate" minlength="5"
                             value="{{ item.contact_name }}" maxlength="50" required>
-                        <label for="contact_name">Contact Name</label>
+                        <label for="contact_name">Contact Name (Required)</label>
                     </div>
-                    <div class="input-field col s4">
+                    <div class="input-field col m4 s12">
                         <input id="contact_email" name="contact_email" type="email" class="validate" minlength="5"
                             value="{{ item.contact_email }}" maxlength="50" required>
-                        <label for="contact_email">Contact Email</label>
+                        <label for="contact_email">Contact Email (Required)</label>
                     </div>
-                    <div class="input-field col s4">
+                    <div class="input-field col m4 s12">
                         <input id="contact_phone" value="{{ item.contact_phone }}" name="contact_phone" type="tel"
                             class="validate">
                         <label for="contact_phone">Contact Phone</label>
@@ -82,7 +82,7 @@
                     <div class="input-field col s12">
                         <input type="text" class="datepicker validate" name="date_of_destruction"
                             id="date_of_destruction" value="{{ item.date_of_destruction }}" required>
-                        <label for="date_of_destruction">Date Of Removal</label>
+                        <label for="date_of_destruction">Date Of Removal (Required)</label>
                     </div>
                 </div>
                 <div class="row">
@@ -90,7 +90,7 @@
                         <input id="item_location" name="item_location" type="text" class="validate" minlength="5"
                             maxlength="150" value="{{ item.item_location }}"
                             required>
-                        <label for="item_location">Item Location</label>
+                        <label for="item_location">Item Location (Required)</label>
                     </div>
                 </div>
                 <div class="row">
